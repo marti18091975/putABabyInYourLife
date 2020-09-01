@@ -1,0 +1,98 @@
+main {
+  margin-top: 100px;
+  background-color: rgb(245, 250, 240);
+  display: flex;
+  flex-direction: column;
+}
+.presentation {
+  width: 70%;
+  background-color: rgb(166, 151, 247);
+  padding: 30px;
+  font-size: 25px;
+  margin: 30px;
+  color: rgb(17, 17, 16);
+}
+.title {
+  padding-top: 20px;
+  color: rgb(3, 3, 80);
+  font-size: 40px;
+  width: 100%;
+  text-align: center;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.center__left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.text {
+  color: rgb(245, 250, 240);
+  font-size: 25px;
+  margin-left: 2vw;
+  padding: 2vw;
+}
+
+.center-side {
+  margin: 2vw;
+}
+img {
+  width: 70%;
+  min-width: 260px;
+  height: 80%;
+  padding: 10px;
+  margin-right: 20px;
+  align-self: center;
+}
+.image {
+  width: 101%;
+  min-width: 260px;
+  max-width: 380px;
+  height: 64%;
+  margin-top: 105px;
+  align-self: center;
+  margin-right: 0px;
+}
+.right-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.left-side {
+  margin-top: 20px;
+  background-color: rgb(19, 8, 83);
+  color: rgb(245, 250, 240);
+}
+
+@media screen and (min-width: 600px) {
+  .title {
+    font-size: 56px;
+  }
+  .presentation {
+    font-size: 30px;
+    align-self: flex-end;
+  }
+
+  .text {
+    font-size: 30px;
+  }
+  .left-side {
+    width: 33%;
+    min-width: 350px;
+  }
+  .center__left {
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  .center {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}
