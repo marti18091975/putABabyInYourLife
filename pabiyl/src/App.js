@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 //import Footer from './components/Footer';
 //import Header from './components/Header';
 //import Main from './components/Main';
-import './App.scss';
-import Login from './components/Login';
-import authStore from './stores/AuthStore';
-import './App.scss';
+import './App.css';
+import DetailUser from './components/DetailUser';
+//import Login from './components/Login';
+//import authStore from './stores/AuthStore';
 
-function App() {
-  const [userLogged, setUserLogged] = useState(false);
+
+function App(props) {
+  /*const [userLogged, setUserLogged] = useState(false);
 
   useEffect(() => {
     authStore.addChangeListener(onChange);
@@ -18,14 +19,15 @@ function App() {
 
   function onChange() {
     setUserLogged(authStore.isLogged());
-  }
+  }*/
   return (
     <>
       {' '}
 
       <Switch>
 
-        <Route path="/" component={Login} />
+        <Route path="/:detailUserId" component={DetailUser} />
+        <Route path="/" component={DetailUser} />
       </Switch>
 
     </>

@@ -1,79 +1,68 @@
 import React, { useState, useEffect } from 'react';
-import user from '../stores/UserStore';
+//import { Prompt } from 'react-router-dom';
+//import user from '../stores/UserStore';
 import userStore from '../stores/UserStore';
+import { loadDetails } from '../actions/detailAction';
+
+
 import './detailUser.css';
 
-const userM = {
-    "name": "MartaGutierrez",
-    "gender": "Female",
-    "age": 35,
-    "city": "Barcelona",
-    "country": "Spain",
-    "civilState": "divorced",
-    "sons": 2,
-    "job": "waitress",
-    "mainimage": "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "secondimage": "https://images.unsplash.com/photo-1524511498335-b0ed6b8e9a69?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1087&q=80",
-    "thirdimage": "https://image.shutterstock.com/image-photo/hiker-woman-standing-hands-achieving-260nw-698075230.jpg",
-    "fourthimage": "https://traceyrickard.co.uk/wp-content/uploads/2018/05/happy-768x512.jpg",
-    "fifthimage": "https://tq621ntvns22q1ju19sjsstx-wpengine.netdna-ssl.com/wp-content/uploads/2015/06/2015-06-08-woman-on-beach-1024x683-photodune-3349638-freedom-m.jpg",
-    "presentation": "Hello, welcome to my profile! I have entered this page because they have told me that it works!Nowadays the classic sentimental relationships have been complicated and I wish I could be a mother, but at the same time I want to share this trip with another companion, will it be you?"
-};
+function DetailUser(props) {
+    const detailUserId = '5f4e6fc673d494545cfbadfc';
+    const [detailUsers, setDetailUsers] = useState(userStore.getDetailUsers());
+    const [detailElement, setDetailElement] = useState({});
+    // [user,setUser] = useState({})
+    const [name, setName] = useState();
+    const [gender, setGender] = useState();
+    const [age, setAge] = useState();
+    const [city, setCity] = useState();
+    const [country, setCountry] = useState();
+    const [civilState, setCivilState] = useState();
+    const [sons, setSons] = useState();
+    const [job, setJob] = useState();
+    const [presentation, setPresentation] = useState();
+    const [mainImage, setMainImage] = useState();
+    const [secondImage, setSecondImage] = useState();
+    const [thirdImage, setThirdImage] = useState();
+    // const [isFormDirty, setIsFormDirty] = useState(false);
 
 
+    useEffect(() => {
 
-function DetailUser() {
-    //  const [detailElement, setDetailElement] = useState(user.getDetailById(getUrl()));
-    const [name, setName] = useState(userM.name);
-    const [gender, setGender] = useState(userM.gender);
-    const [age, setAge] = useState(userM.age);
-    const [city, setCity] = useState(userM.city);
-    const [country, setCountry] = useState(userM.country);
-    const [civilState, setCivilState] = useState(userM.civilState);
-    const [sons, setSons] = useState(userM.sons);
-    const [job, setJob] = useState(userM.job);
-    const [presentation, setPresentation] = useState(userM.presentation);
-    const [mainImage, setMainImage] = useState(userM.mainimage);
-    const [secondImage, setSecondImage] = useState(userM.secondimage);
-    const [thirdImage, setThirdImage] = useState(userM.thirdimage);
-    const [fourthImage, setFourthImage] = useState(userM.fourthimage);
-    const [fifthImage, setFifthImage] = useState(userM.fifthimage);
-
-    /*useEffect(() => {
         userStore.addChangeListener(onChange);
-         if (!detailElement) {
-             setDetailElement(user.getDetailById(getUrl()));
-         } else {
-             setName(detailElement.name);
-             setGender(detailElement.gender);
-             setAge(detailElement.age);
-             setCity(detailElement.city);
-             setCountry(detailElement.country);
-             setCivilState(detailElement.civilState);
-             setSons(detailElement.sons);
-             setJob(detailElement.job);
-             setPresentation(detailElement.presentation);
-             setMainImage(detailElement.mainImage);
-             setSecondImage(detailElement.secondImage);
-             setThirdImage(detailElement.thirdImage);
-             setFourthImage(detailElement.FourthImage);
-             setFifthImage(detailElement.FifthImage);
- 
-         }
-         return () => userStore.removeChangeListener(onChange);
-     }, [detailElement]);
- 
-     function onChange() {
-         setDetailElement(user.getDetailById(getUrl()));
-     }
- 
-     function getUrl() {
-         var actual = window.location + '';
-         var split = actual.split('/');
-         var id = split[split.length - 1];
- 
-         return decodeURI(id);
-     }*/
+        debugger
+        const detailUserId = '5f4e6fc673d494545cfbadfc';
+        if (detailUsers.length === 0) {
+            debugger
+            console.log("something is going wrong");
+            loadDetails();
+        } else if (detailUserId) {
+            const detailUser = userStore.getDetailUserById(detailUserId);
+            if (detailUser) {
+                setDetailElement(detailUser);
+                setName(detailUser.name);
+                setGender(detailUser.gender);
+                setAge(detailUser.age);
+                setCity(detailUser.city);
+                setCountry(detailUser.country);
+                setCivilState(detailUser.civilState);
+                setSons(detailUser.sons);
+                setJob(detailUser.job);
+                setPresentation(detailUser.presentation);
+                setMainImage(detailUser.mainimage);
+                setSecondImage(detailUser.secondimage);
+                setThirdImage(detailUser.thirdimage);
+            }
+            debugger
+        }
+        return () => userStore.removeChangeListener(onChange);
+
+    }, [detailUsers.length, detailElement, detailUserId, onChange]);
+
+    function onChange() {
+        setDetailUsers(userStore.getDetailUsers());
+
+    }
 
     return (
         <main>
@@ -89,14 +78,18 @@ function DetailUser() {
                         <div className="text">Civil state: {civilState}</div>
                         <div className="text">Sons: {sons}</div>
                         <div className="text">Job: {job}</div>
+                        <div className="buttons">
+                            <button className="buttonE-mail"></button>
+                            <button className="buttonChat"></button>
+                        </div>
                     </section>
                     <section className="center-side">
                         <img className="image" src={mainImage} alt=""></img>
                     </section>
                 </div>
                 <section className="right-side">
-                    <img src={secondImage}></img>
-                    <img src={thirdImage}></img>
+                    <img src={secondImage} alt=""></img>
+                    <img src={thirdImage} alt=""></img>
                 </section>
             </div>
             <div className="presentation">{presentation}</div>

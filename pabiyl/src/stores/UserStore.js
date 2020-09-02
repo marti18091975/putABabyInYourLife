@@ -14,8 +14,13 @@ class UserStore extends EventEmitter {
     emitChange() {
         this.emit(CHANGE_EVENT);
     }
-    getDetailById(id) {
+    getDetailUsers() {
+
+        return _users;
+    }
+    getDetailUserById(id) {
         const actualUser = _users.find((user) => user.id === id);
+        console.log("ara estic al store", actualUser);
         return actualUser;
     }
 }
@@ -23,7 +28,7 @@ class UserStore extends EventEmitter {
 const userStore = new UserStore();
 
 dispatcher.register((action) => {
-    if (action.type === actionTypes.LOAD_DETAIL) {
+    if (action.type === actionTypes.LOAD_DETAIL_USER) {
         _users = action.data;
         userStore.emitChange(_users);
     }
