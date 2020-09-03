@@ -13,12 +13,16 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "react-test-renderer": "^16.13.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watch",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test: coverage-all": "jest --coverage --watchAll",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

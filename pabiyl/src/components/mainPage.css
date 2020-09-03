@@ -1,0 +1,64 @@
+.main__main {
+  height: 100%;
+  width: 100%;
+  background-image: url("https://freedesignfile.com/upload/2018/05/Parents-with-children-playing-football-Stock-Photo.jpg");
+  background-size: auto 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin-left: auto;
+  margin-right: auto;
+}
+.title__main {
+  padding-top: 20px;
+  margin-right: 40px;
+  text-align: end;
+  font-size: 24px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: rgb(3, 3, 80);
+}
+.navigation__container {
+  display: flex;
+  flex-direction: row;
+  height: 130px;
+  width: 100%;
+  margin-top: 370px;
+  margin-bottom: 20px;
+  justify-content: space-between;
+}
+.navigation__container--side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 159px;
+}
+
+.navigation__text {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 20px;
+  color: rgb(8, 8, 8);
+  font-weight: bold;
+  text-decoration: none;
+  padding: 5px 10px;
+}
+
+.navigation__text:hover {
+  color: white;
+}
+
+@media screen and (min-width: 700px) {
+  .main__main {
+    background-size: 100% auto;
+  }
+  .navigation__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 320px;
+    margin-top: 170px;
+    margin-bottom: 40px;
+    margin-left: 40px;
+  }
+  .title__main {
+    font-size: 30px;
+  }
+}

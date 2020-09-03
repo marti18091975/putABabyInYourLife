@@ -1,7 +1,7 @@
 import dispatcher from '../Dispatcher';
 import actionTypes from './actionTypes';
 import axios from 'axios';
-//var req = new XMLHttpRequest();
+
 
 
 export function loadDetails() {

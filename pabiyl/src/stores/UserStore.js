@@ -19,19 +19,29 @@ class UserStore extends EventEmitter {
         return _users;
     }
     getDetailUserById(id) {
-        const actualUser = _users.find((user) => user.id === id);
-        console.log("ara estic al store", actualUser);
-        return actualUser;
+        // const actualUser = _users.find((user) => user.id === id);
+        //console.log("ara estic al store", actualUser);
+        return _users;
     }
 }
 
 const userStore = new UserStore();
 
 dispatcher.register((action) => {
-    if (action.type === actionTypes.LOAD_DETAIL_USER) {
-        _users = action.data;
-        userStore.emitChange(_users);
+    console.log("AQUEST ES EL ACTION", action);
+    switch (action.type) {
+        case actionTypes.LOAD_USERS:
+            _users = action.data;
+            userStore.emitChange(_users);
+            break;
+        case actionTypes.LOAD_DETAIL_USER:
+            _users = action.data[0];
+            userStore.emitChange(_users);
+            break;
+        default: break;
+
     }
+
 });
 
 export default userStore;
