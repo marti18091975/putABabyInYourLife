@@ -7,7 +7,7 @@ import { loadDetails } from "../actions/detailAction";
 import "./detailUser.css";
 
 function DetailUser(props) {
-  const detailUserId = "5f4e6fc673d494545cfbadfc";
+  let detailUserId = "5f4e6fc673d494545cfbadfc";
   const [detailUsers, setDetailUsers] = useState(userStore.getDetailUsers());
   const [detailElement, setDetailElement] = useState({});
   // [user,setUser] = useState({})
@@ -28,9 +28,10 @@ function DetailUser(props) {
   useEffect(() => {
     userStore.addChangeListener(onChange);
 
-    // const detailUserId = "5f4e6fc673d494545cfbadfc";
+    detailUserId = props.match.params.detailUserId;
     if (detailUsers.length === 0) {
       loadDetails();
+      console.log("DETAILUSERID", props.match.params.detailUserId);
     } else if (detailUserId) {
       const detailUser = userStore.getDetailUserById(detailUserId);
       if (detailUser) {

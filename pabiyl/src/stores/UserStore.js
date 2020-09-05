@@ -19,9 +19,9 @@ class UserStore extends EventEmitter {
         return _users;
     }
     getDetailUserById(id) {
-        // const actualUser = _users.find((user) => user.id === id);
+
         //console.log("ara estic al store", actualUser);
-        return _users;
+        return _users.find((user) => user._id === id);;
     }
 }
 
@@ -35,7 +35,7 @@ dispatcher.register((action) => {
             userStore.emitChange(_users);
             break;
         case actionTypes.LOAD_DETAIL_USER:
-            _users = action.data[0];
+            _users = action.data;
             userStore.emitChange(_users);
             break;
         default: break;
