@@ -7,7 +7,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { FirebaseAppProvider } from 'reactfire';
-import fireBaseConfig from './firebase-config';
+import fireBaseConfig from './firebase/firebase-config';
 ReactDOM.render(
   <React.StrictMode>
     <Router>

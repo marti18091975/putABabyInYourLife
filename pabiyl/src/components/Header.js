@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './header.css';
-import userStore from "../stores/UserStore";
+import userStore from "../stores/userStore";
 import { loadDetails } from "../actions/detailAction";
 import { NavLink } from 'react-router-dom';
 
@@ -46,8 +46,8 @@ function Header(props) {
                 </ul>
             </button>
             <div className="container__header">
-                <img src="https://cdn.icon-icons.com/icons2/1873/PNG/512/baby-6_119902.png" className="logo" alt=""></img>
                 <h1 className="title__header">Put a baby in your life</h1>
+                <img src="https://cdn.icon-icons.com/icons2/1873/PNG/512/baby-6_119902.png" className="logo" alt=""></img>
             </div>
             <div className="container__header">
                 <p className="user__name">{name}</p>

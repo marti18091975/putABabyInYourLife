@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 //import { Prompt } from 'react-router-dom';
 //import user from '../stores/UserStore';
-import userStore from "../stores/UserStore";
+import userStore from "../stores/userStore";
 import { loadDetails } from "../actions/detailAction";
 
 import "./detailUser.css";
@@ -59,30 +59,91 @@ function DetailUser(props) {
 
   return (
     <main className="main__detail">
-      <h1 className="title__detail">{name} PROFILE</h1>
-      <div className="center">
-        <div className="center__left">
-          <section className="left-side">
-            <div className="text">Name: {name}</div>
-            <div className="text">Gender: {gender}</div>
-            <div className="text">Age: {age}</div>
-            <div className="text">City: {city}</div>
-            <div className="text">Country: {country}</div>
-            <div className="text">Civil state: {civilState}</div>
-            <div className="text">Sons: {sons}</div>
-            <div className="text">Job: {job}</div>
-            <div className="buttons">
+      <div className="main__detail--top">
+        <div className="left-side">
+          <section className="container__info">
+            <div className="text__detail name__detail"> {name}</div>
+            <div className="container__bottom--detail">
+              <div className="container">
+                <div className="container__detail">
+                  <img
+                    alt="gender"
+                    className="icon__detail"
+                    src="https://image.flaticon.com/icons/svg/3260/3260246.svg"
+                  ></img>
+                  <div className="text__detail">{gender}</div>
+                </div>
+                <div className="container__detail">
+                  <img
+                    alt="age"
+                    className="icon__detail"
+                    src="https://image.flaticon.com/icons/svg/3021/3021790.svg"
+                  ></img>
+                  <div className="text__detail">{age}</div>
+                </div>
+              </div>
+              <div className="container">
+                <div className="container__detail">
+                  <img
+                    alt="City"
+                    className="icon__detail"
+                    src="https://image.flaticon.com/icons/svg/888/888063.svg"
+                  ></img>
+                  <div className="text__detail">{city}</div>
+                </div>
+                <div className="container__detail">
+                  <img
+                    alt="country"
+                    className="icon__detail"
+                    src="https://image.flaticon.com/icons/svg/3455/3455212.svg"
+                  ></img>
+                  <div className="text__detail">{country}</div>
+                </div>
+              </div>
+              <div className="container group-three">
+                <div className="container__detail">
+                  <img
+                    alt="civil state"
+                    className="icon__detail"
+                    src="https://image.flaticon.com/icons/svg/1102/1102457.svg"
+                  ></img>
+                  <div className="text__detail">{civilState}</div>
+                </div>
+                <div className="container__detail">
+                  <img
+                    alt="sons"
+                    className="icon__detail"
+                    src="https://image.flaticon.com/icons/svg/1761/1761430.svg"
+                  ></img>
+                  <div className="text__detail">{sons}</div>
+                </div>
+                <div className="container__detail">
+                  <img
+                    alt="job"
+                    className="icon__detail"
+                    src="https://image.flaticon.com/icons/svg/1063/1063196.svg"
+                  ></img>
+                  <div className="text__detail">{job}</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="buttons bt__inside">
               <button className="buttonE-mail"></button>
               <button className="buttonChat"></button>
             </div>
           </section>
-          <section className="center-side">
-            <img className="image__main" src={mainImage} alt=""></img>
+          <section className="left-side__bottom">
+            <img className="image__secundary" src={secondImage} alt=""></img>
+            <img className="image__secundary" src={thirdImage} alt=""></img>
           </section>
         </div>
-        <section className="right-side">
-          <img className="image__secundary" src={secondImage} alt=""></img>
-          <img className="image__secundary" src={thirdImage} alt=""></img>
+        <section className="right-side__detail">
+          <img className="image__main" src={mainImage} alt=""></img>
+          <div className="buttons bt__outside">
+            <button className="buttonE-mail"></button>
+            <button className="buttonChat"></button>
+          </div>
         </section>
       </div>
       <div className="presentation">{presentation}</div>

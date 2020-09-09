@@ -1,7 +1,7 @@
 .main__header {
   display: flex;
   flex-direction: row;
-  height: 80px;
+  height: 70px;
   width: 100%;
   min-width: 350px;
   justify-content: space-between;
@@ -33,8 +33,8 @@
 }
 .user__image {
   margin-left: 10px;
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
 }
 .container__header {
@@ -76,18 +76,12 @@
 .burguer-button:hover > .burguer-menu {
   display: block;
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 700px) {
   .title__header {
     display: inline;
-    margin-left: 10px;
-    font-size: 16px;
+    margin-right: 10px;
+    font-size: 22px;
     font-family: Georgia, "Times New Roman", Times, serif;
-    color: rgb(3, 3, 80);
-  }
-}
-
-@media screen and (min-width: 800px) {
-  .title__header {
-    font-size: 24px;
+    color: rgb(237, 245, 244);
   }
 }

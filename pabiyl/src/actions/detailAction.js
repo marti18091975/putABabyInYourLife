@@ -16,6 +16,15 @@ export function loadDetails() {
     });
 }
 
+export function filterList(filterElement) {
+    return () => {
+        dispatcher.dispatch({
+            type: actionTypes.FILTER_LIST,
+            data: filterElement
+        });
+    }
+}
+
 /*const recipeObjectApi = await new Promise((resolve, reject) => {
     req.open(
         'GET',

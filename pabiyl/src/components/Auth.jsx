@@ -1,52 +1,82 @@
-import React, { useState } from "react";
-import "firebase/auth";
-import { useFirebaseApp, useUser } from "reactfire";
+import React, { useState, useEffect } from "react";
+
+import {
+  login,
+  logout,
+  googleLogin,
+  anonymousLogin,
+  createUser,
+} from "../actions/AuthActions";
+import "./auth.css";
+import authStore from "../stores/authStore";
+import Main from "./MainPage";
 export default (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const firebase = useFirebaseApp();
-  const user = useUser();
-  const submit = async () => {
-    await firebase.auth().createUserWithEmailAndPassword(email, password);
-  };
-  const logout = async () => {
-    await firebase.auth().signOut();
-  };
-  const login = async () => {
-    await firebase.auth().signInWithEmailAndPassword(email, password);
-  };
-  const signInWithGoogle = async () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
-    await firebase.auth().signInWithPopup(provider);
-  };
+  const [isLogged, setIsLogged] = useState(authStore.isLogged());
 
-  const signInAnonnymusly = async () => {
-    await firebase.auth().signInAnonymously();
-  };
+  const [user, setUser] = useState(authStore.getUserProfile());
+  useEffect(() => {
+    authStore.addChangeListener(onAuthChange);
+    return () => authStore.removeChangeListener(onAuthChange);
+  }, [isLogged, user]);
+
+  function onAuthChange() {
+    setIsLogged(authStore.isLogged());
+    setUser(authStore.getUserProfile());
+  }
   return (
-    <div>
+    <div className="main__login">
       {!user && (
-        <div>
+        <div className="login-container">
+          <img
+            className="logo__login"
+            src="https://cdn.icon-icons.com/icons2/1873/PNG/512/baby-6_119902.png"
+          ></img>
           <label htmlFor="email">E-mail</label>
           <input
             type="email"
-            id="email"
+            className="email__box"
             onChange={(ev) => setEmail(ev.target.value)}
           ></input>
           <label htmlFor="password">Password</label>
           <input
             type="password"
             id="password"
+            className="email__box"
             onChange={(ev) => setPassword(ev.target.value)}
           ></input>
-          <button onClick={submit}>register</button>
-          <button onClick={login}>Start session</button>
-          <button onClick={signInWithGoogle}>Google</button>
-          <button onClick={signInAnonnymusly}>Anon</button>
+          <div className="section__bottom">
+            <div className="section">
+              <button
+                onClick={(event) => {
+                  event.preventDefault();
+                  login(email, password);
+                }}
+                className="button__login login"
+              ></button>
+              <button
+                onClick={(event) => {
+                  event.preventDefault();
+                  createUser(email, password);
+                }}
+                className="button__login register"
+              ></button>
+            </div>
+            <div className="section">
+              <button
+                onClick={googleLogin}
+                className="button__login google"
+              ></button>
+              <button
+                onClick={anonymousLogin}
+                className="button__login anon"
+              ></button>
+            </div>
+          </div>
         </div>
       )}
-      {user && <button onClick={logout}>Log out</button>}
+      {user && <Main />}
     </div>
   );
 };

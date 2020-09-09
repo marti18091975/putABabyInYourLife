@@ -3,7 +3,7 @@
   width: 100%;
   background-image: url("https://freedesignfile.com/upload/2018/05/Parents-with-children-playing-football-Stock-Photo.jpg");
   background-size: auto 100%;
-  background-position: center center;
+  background-position: center -78px;
   background-repeat: no-repeat;
   margin-left: auto;
   margin-right: auto;
@@ -21,7 +21,7 @@
   flex-direction: row;
   height: 130px;
   width: 100%;
-  margin-top: 370px;
+  padding-top: 400px;
   margin-bottom: 20px;
   justify-content: space-between;
 }
@@ -34,7 +34,7 @@
 
 .navigation__text {
   font-family: Georgia, "Times New Roman", Times, serif;
-  font-size: 20px;
+  font-size: 15px;
   color: rgb(8, 8, 8);
   font-weight: bold;
   text-decoration: none;
@@ -46,19 +46,31 @@
 }
 
 @media screen and (min-width: 700px) {
-  .main__main {
-    background-size: 100% auto;
+  .title__main {
+    display: none;
   }
+
   .navigation__container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 320px;
-    margin-top: 170px;
+    padding-top: 240px;
     margin-bottom: 40px;
     margin-left: 40px;
   }
-  .title__main {
-    font-size: 30px;
+  .navigation__text {
+    font-size: 22px;
+  }
+}
+
+@media screen and (min-width: 820px) {
+  .main__main {
+    background-size: 100% auto;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .main__main {
+    background-position: center -207px;
   }
 }
