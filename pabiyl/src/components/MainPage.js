@@ -9,7 +9,7 @@ function MainPage() {
             <div className="navigation__container">
                 <div className="navigation__container--side">
                     <NavLink to="/detailUser/5f4e6fc673d494545cfbadfc" className="navigation__text">profile</NavLink>
-                    <NavLink to="/detailUser/5f4e6fc673d494545cfbadfc" className="navigation__text" >find users</NavLink>
+                    <NavLink to="/SearchFilters/" className="navigation__text" >find users</NavLink>
                     <NavLink to="/detailUser/5f4e6fc673d494545cfbadfc" className="navigation__text">messages</NavLink>
                 </div>
                 <div className="navigation__container--side">

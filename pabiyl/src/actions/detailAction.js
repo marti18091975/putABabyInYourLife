@@ -7,7 +7,6 @@ import axios from 'axios';
 export function loadDetails() {
 
     return axios.get('/api/detailUser/').then((detailUsers) => {
-        console.log("Aquest és el resultat", detailUsers.data);
 
         dispatcher.dispatch({
             type: actionTypes.LOAD_DETAIL_USER,
@@ -16,11 +15,13 @@ export function loadDetails() {
     });
 }
 
-export function filterList(filterElement) {
+export function filterList(filterList) {
     return () => {
+        console.log("Aquest és el resultat filtrat", filterList);
+        debugger;
         dispatcher.dispatch({
             type: actionTypes.FILTER_LIST,
-            data: filterElement
+            data: filterList
         });
     }
 }

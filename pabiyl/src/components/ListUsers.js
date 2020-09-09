@@ -1,16 +1,49 @@
 import React, { useState, useEffect } from "react";
 //import { Prompt } from 'react-router-dom';
 //import user from '../stores/UserStore';
-import userStore, { _usersFiltered } from "../stores/userStore";
-import { filterList, loadDetails } from "../actions/detailAction";
+import userStore from "../stores/userStore";
+import { filterList } from "../actions/detailAction";
 import { NavLink } from 'react-router-dom';
 
 import "./listUsers.css";
 
 function ListUsers(props) {
+    console.log("Aquestes son les props", props.usersList);
+    const [users, setUsers] = useState(userStore.getFilterList);
+    const [chargeTime, setChargeTime] = useState(false);
+    /*useEffect(() => {
+        userStore.addChangeListener(onChange);
+        
+        filterList();
+        
+        return () => userStore.removeChangeListener(onChange);
+    }, []);
+    function onChange() {
+        console.log("Aquest és el resultat filtratX", userStore.getfilterList());
+        setUsers(userStore.getFilterList());
+    }*/
+    useEffect(() => {
+        userStore.addChangeListener(onChange);
+        chargeList();
+        if (users.length !== 0) {
+            resetTime();
+        }
+        return () => userStore.removeChangeListener;
+    }, [users.length, chargeTime]);
 
-    const [users, setUsers] = useState([]);
-    const actualUsersList = users.map((user) => {
+    function onChange() {
+        setUsers(userStore.getFilterList);
+    }
+
+    function chargeList() {
+        setTimeout(() => {
+            setChargeTime(true);
+        }, 3000);
+    }
+    function resetTime() {
+        setChargeTime(false);
+    }
+    const actualUsersList = props.usersList.map((user) => {
         const link = '/detailUser/' + user._id;
         return (
             <NavLink className="nav-link" key={user._id} to={link}>
@@ -45,16 +78,6 @@ function ListUsers(props) {
 
         );
     });
-    useEffect(() => {
-        userStore.addChangeListener(onChange);
-        loadDetails();
-        filterList();
-
-        return () => userStore.removeChangeListener(onChange);
-    }, []);
-    function onChange() {
-        setUsers(_usersFiltered);
-    }
     return (
         <div className="main__list">
 
