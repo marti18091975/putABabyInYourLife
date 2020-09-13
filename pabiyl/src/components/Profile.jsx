@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import userStore from "../stores/userStore";
 import { loadDetails } from "../actions/detailAction";
+import authStore from "../stores/authStore";
+import { NavLink } from "react-router-dom";
 
 import "./detailUser.css";
 
-function DetailUser(props) {
-  let detailUserId = "5f4e6fc673d494545cfbadfc";
+function Profile(props) {
+  const [email, setEmail] = useState(authStore.getUserEmail());
   const [detailUsers, setDetailUsers] = useState(userStore.getDetailUsers());
   const [detailElement, setDetailElement] = useState({});
   const [name, setName] = useState();
@@ -24,11 +26,10 @@ function DetailUser(props) {
   useEffect(() => {
     userStore.addChangeListener(onChange);
 
-    detailUserId = props.match.params.detailUserId;
     if (detailUsers.length === 0) {
       loadDetails();
-    } else if (detailUserId) {
-      const detailUser = userStore.getDetailUserById(detailUserId);
+    } else if (email) {
+      const detailUser = userStore.getDetailUserByEmail(email);
       if (detailUser) {
         setDetailElement(detailUser);
         setName(detailUser.name);
@@ -46,7 +47,7 @@ function DetailUser(props) {
       }
     }
     return () => userStore.removeChangeListener(onChange);
-  }, [detailUsers.length, detailElement, detailUserId, onChange]);
+  }, [onChange]);
 
   function onChange() {
     setDetailUsers(userStore.getDetailUsers());
@@ -126,6 +127,9 @@ function DetailUser(props) {
             <div className="buttons bt__inside">
               <button className="buttonE-mail"></button>
               <button className="buttonChat"></button>
+              <NavLink className="navLink__edit" to="/profileEditor">
+                EDIT
+              </NavLink>
             </div>
           </section>
           <section className="left-side__bottom">
@@ -138,6 +142,9 @@ function DetailUser(props) {
           <div className="buttons bt__outside">
             <button className="buttonE-mail"></button>
             <button className="buttonChat"></button>
+            <NavLink className="navLink__edit" to="/profileEditor">
+              EDIT
+            </NavLink>
           </div>
         </section>
       </div>
@@ -145,4 +152,4 @@ function DetailUser(props) {
     </main>
   );
 }
-export default DetailUser;
+export default Profile;

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 
 import {
   login,
-  logout,
   googleLogin,
   anonymousLogin,
   createUser,
@@ -31,7 +30,7 @@ export default (props) => {
         <div className="login-container">
           <img
             className="logo__login"
-            src="https://cdn.icon-icons.com/icons2/1873/PNG/512/baby-6_119902.png"
+            src="https://www.flaticon.es/svg/static/icons/svg/2444/2444603.svg"
           ></img>
           <label htmlFor="email">E-mail</label>
           <input

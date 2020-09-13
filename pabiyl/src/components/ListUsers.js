@@ -9,7 +9,7 @@ import "./listUsers.css";
 
 function ListUsers(props) {
     console.log("Aquestes son les props", props.usersList);
-    const [users, setUsers] = useState(userStore.getFilterList);
+    const [users, setUsers] = useState(props.usersList);
     const [chargeTime, setChargeTime] = useState(false);
     /*useEffect(() => {
         userStore.addChangeListener(onChange);
@@ -22,27 +22,27 @@ function ListUsers(props) {
         console.log("Aquest és el resultat filtratX", userStore.getfilterList());
         setUsers(userStore.getFilterList());
     }*/
-    useEffect(() => {
-        userStore.addChangeListener(onChange);
-        chargeList();
-        if (users.length !== 0) {
-            resetTime();
-        }
-        return () => userStore.removeChangeListener;
-    }, [users.length, chargeTime]);
-
-    function onChange() {
-        setUsers(userStore.getFilterList);
-    }
-
-    function chargeList() {
-        setTimeout(() => {
-            setChargeTime(true);
-        }, 3000);
-    }
-    function resetTime() {
-        setChargeTime(false);
-    }
+    /* useEffect(() => {
+         userStore.addChangeListener(onChange);
+         chargeList();
+         if (users.length !== 0) {
+             resetTime();
+         }
+         return () => userStore.removeChangeListener;
+     }, [users.length, chargeTime]);
+ 
+     function onChange() {
+         setUsers(props.usersList);
+     }
+ 
+     function chargeList() {
+         setTimeout(() => {
+             setChargeTime(true);
+         }, 3000);
+     }
+     function resetTime() {
+         setChargeTime(false);
+     }*/
     const actualUsersList = props.usersList.map((user) => {
         const link = '/detailUser/' + user._id;
         return (

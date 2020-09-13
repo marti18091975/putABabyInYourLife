@@ -14,8 +14,9 @@ const userModel = new Schema({
     mainImage: { type: String },
     secondImage: { type: String },
     thirdImage: { type: String },
-    fourthImage: { type: String },
-    fifthImage: { type: String },
-    presentation: { type: String }
+    presentation: { type: String },
+    email: { type: String },
+    latitude: { type: Number },
+    longitude: { type: Number }
 });
 module.exports = mongoose.model('userDetail', userModel);

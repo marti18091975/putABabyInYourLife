@@ -2,7 +2,7 @@
   "name": "tohapi",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "mocha src/test/**/*Spec.js",
     "start": "set DEBUG=app,app:* & nodemon app.js",
@@ -29,7 +29,10 @@
     "nodemon": "^2.0.4",
     "should": "^13.2.3",
     "sinon": "^9.0.3",
-    "supertest": "^4.0.2"
+    "supertest": "^4.0.2",
+    "multer": "^1.4.2",
+    "multer-gridfs-storage": "^4.2.0",
+    "gridfs-stream": "^1.1.1"
   },
   "nodemonConfig": {
     "reseteable": "rs",

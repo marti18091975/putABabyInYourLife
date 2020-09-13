@@ -3,6 +3,8 @@ import './header.css';
 import userStore from "../stores/userStore";
 import { loadDetails } from "../actions/detailAction";
 import { NavLink } from 'react-router-dom';
+import { logout } from '../actions/AuthActions';
+import authStore from '../stores/authStore';
 
 
 function Header(props) {
@@ -10,6 +12,7 @@ function Header(props) {
     const [name, setName] = useState();
     const [mainImage, setMainImage] = useState();
     const [detailUsers, setDetailUsers] = useState(userStore.getDetailUsers());
+    const [userEmail, setUserEmail] = useState(authStore.getUserEmail());
     useEffect(() => {
         userStore.addChangeListener(onChange);
 
@@ -17,7 +20,7 @@ function Header(props) {
         if (detailUsers.length === 0) {
             loadDetails();
         } else if (detailUserId) {
-            const detailUser = userStore.getDetailUserById(detailUserId);
+            const detailUser = userStore.getDetailUserByEmail(userEmail);
             if (detailUser) {
 
                 setName(detailUser.name);
@@ -35,25 +38,25 @@ function Header(props) {
         <section className="main__header">
             <button className="burguer-button">
                 <ul className="burguer-menu">
+                    <li className="menu__header"><NavLink to="/main" className="nav__header">main</NavLink></li>
                     <li className="menu__header">
-                        <NavLink to="/detailUser" className="nav__header">profile</NavLink></li>
-                    <li className="menu__header"><NavLink to="/detailUser" className="nav__header">find users</NavLink></li>
+                        <NavLink to="/profile" className="nav__header">profile</NavLink></li>
+                    <li className="menu__header"><NavLink to="/searchFilters" className="nav__header">find users</NavLink></li>
                     <li className="menu__header"><NavLink to="/detailUser" className="nav__header">messages</NavLink></li>
                     <li className="menu__header"><NavLink to="/detailUser" className="nav__header">group activities</NavLink></li>
                     <li className="menu__header"><NavLink to="/detailUser" className="nav__header">chat</NavLink></li>
                     <li className="menu__header"><NavLink to="/detailUser" className="nav__header">users experiencies</NavLink></li>
-                    <li className="menu__header"><NavLink to="/detailUser" className="nav__header">legal doubts</NavLink></li>
                 </ul>
             </button>
             <div className="container__header">
-                <h1 className="title__header">Put a baby in your life</h1>
-                <img src="https://cdn.icon-icons.com/icons2/1873/PNG/512/baby-6_119902.png" className="logo" alt=""></img>
+                <div className="title__header">Put a baby in your life</div>
+                <img src="https://www.flaticon.es/svg/static/icons/svg/2444/2444603.svg" className="logo" alt=""></img>
             </div>
             <div className="container__header">
-                <p className="user__name">{name}</p>
+                <div className="user__name">{name}</div>
                 <img src={mainImage} alt="" className="user__image"></img>
             </div>
-            <button className="log-out"></button>
+            <button className="log-out" onClick={logout}></button>
         </section>
     )
 

@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import "./searchFilters.css";
 import userStore from "../stores/userStore";
+import authStore from "../stores/authStore";
 import { loadDetails, filterList } from "../actions/detailAction";
 import { Link } from "react-router-dom";
 import ListUsers from "./ListUsers";
 function SearchFilters(props) {
-  const [lat1, setLat1] = useState(41.48);
-  const [lon1, setLon1] = useState(2.11);
-  const [users, setUsers] = useState();
+  const [email, setEmail] = useState(authStore.getUserEmail());
+  const [lat1, setLat1] = useState();
+  const [lon1, setLon1] = useState();
+  const [gender, setGender] = useState();
+  const [users, setUsers] = useState(userStore.getDetailUsers());
   let [usersList, setUsersList] = useState();
   const [ageDown, setAgeDown] = useState(18);
   const [ageUp, setAgeUp] = useState(90);
@@ -32,6 +35,7 @@ function SearchFilters(props) {
     divorced: { divorced },
     widow: { widow },
     married: { married },
+    gender: { gender },
   };
   console.log("aquests són els filtres", filters, withJob, withSons);
 
@@ -47,6 +51,13 @@ function SearchFilters(props) {
   }, []);
   function onChange() {
     setUsers(userStore.getDetailUsers());
+    setLat1(userStore.getDetailUserByEmail(email).latitude);
+    setLon1(userStore.getDetailUserByEmail(email).longitude);
+    if (userStore.getDetailUserByEmail(email).gender === "male") {
+      setGender("female");
+    } else {
+      setGender("male");
+    }
   }
   let getKilometers = function (lat1, lon1, lat2, lon2) {
     let rad = function (x) {
@@ -63,24 +74,31 @@ function SearchFilters(props) {
         Math.sin(dLong / 2);
     var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     var d = R * c;
+    console.log("$$$$$$", d);
     return d.toFixed(3); //Retorna tres decimales
   };
   function usingFilters() {
-    let userResult = users.filter(
-      (element) =>
-        element.age >= +ageDown &&
-        element.age <= +ageUp &&
-        +getKilometers(lat1, lon1, element.lat, element.lon) <= +distance &&
-        ((element.sons > 0 && withSons === "yes") ||
-          (element.sons === 0 && withoutSons === "no")) &&
-        ((element.job === "yes" && withJob === "yes") ||
-          (element.job === "no" && withoutJob === "no")) &&
-        ((element.civilState === "single" && single === "single") ||
-          (element.civilState === "divorced" && divorced === "divorced") ||
-          (element.civilState === "widow" && widow === "widow") ||
-          (element.civilState === "married" && married === "married"))
-    );
-    setUsersList(userResult);
+    if (!users) {
+      loadDetails();
+    } else {
+      let userResult = users.filter(
+        (element) =>
+          element.age >= +ageDown &&
+          element.age <= +ageUp &&
+          +getKilometers(lat1, lon1, element.latitude, element.longitude) <=
+            +distance &&
+          ((element.sons > 0 && withSons === "yes") ||
+            (element.sons === 0 && withoutSons === "no")) &&
+          ((element.job === "yes" && withJob === "yes") ||
+            (element.job === "no" && withoutJob === "no")) &&
+          ((element.civilState === "single" && single === "single") ||
+            (element.civilState === "divorced" && divorced === "divorced") ||
+            (element.civilState === "widow" && widow === "widow") ||
+            (element.civilState === "married" && married === "married")) &&
+          element.gender === gender
+      );
+      setUsersList(userResult);
+    }
   }
 
   return (
@@ -96,8 +114,8 @@ function SearchFilters(props) {
               ></img>
               <div className="age__filter--text filter__text">from</div>
               <input
-                type="text"
                 className="input__filter"
+                type="text"
                 onChange={(event) =>
                   onFieldChange(event.target.value, setAgeDown)
                 }
@@ -136,6 +154,7 @@ function SearchFilters(props) {
                 src="https://image.flaticon.com/icons/svg/1761/1761430.svg"
               ></img>
               <input
+                className="checkbox__input"
                 type="checkbox"
                 value="yes"
                 onChange={(event) =>
@@ -145,6 +164,7 @@ function SearchFilters(props) {
               <div className="sons__filter--text filter__text">yes</div>
               <input
                 type="checkbox"
+                className="checkbox__input"
                 value="no"
                 onChange={(event) =>
                   onFieldChange(event.target.value, setWithoutSons)
@@ -160,6 +180,7 @@ function SearchFilters(props) {
               ></img>
               <input
                 type="checkbox"
+                className="checkbox__input"
                 value="yes"
                 onChange={(event) =>
                   onFieldChange(event.target.value, setWithJob)
@@ -170,6 +191,7 @@ function SearchFilters(props) {
 
               <input
                 type="checkbox"
+                className="checkbox__input"
                 value="no"
                 onChange={(event) =>
                   onFieldChange(event.target.value, setWithoutJob)
@@ -188,6 +210,7 @@ function SearchFilters(props) {
                   <div className="civilState__options--file">
                     <input
                       type="checkbox"
+                      className="checkbox__input"
                       value="single"
                       onChange={(event) =>
                         onFieldChange(event.target.value, setSingle)
@@ -200,6 +223,7 @@ function SearchFilters(props) {
                   <div className="civilState__options--file">
                     <input
                       type="checkbox"
+                      className="checkbox__input"
                       value="divorced"
                       onChange={(event) =>
                         onFieldChange(event.target.value, setDivorced)
@@ -214,6 +238,7 @@ function SearchFilters(props) {
                   <div className="civilState__options--file">
                     <input
                       type="checkbox"
+                      className="checkbox__input"
                       value="widow"
                       onChange={(event) =>
                         onFieldChange(event.target.value, setWidow)
@@ -226,6 +251,7 @@ function SearchFilters(props) {
                   <div className="civilState__options--file">
                     <input
                       type="checkbox"
+                      className="checkbox__input"
                       value="married"
                       onChange={(event) =>
                         onFieldChange(event.target.value, setMarried)

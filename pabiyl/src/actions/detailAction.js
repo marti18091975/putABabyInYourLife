@@ -15,51 +15,24 @@ export function loadDetails() {
     });
 }
 
-export function filterList(filterList) {
-    return () => {
-        console.log("Aquest és el resultat filtrat", filterList);
-        debugger;
+export function saveUser(user) {
+    return axios.post('/api/detailUser', user).then((savedUser) => {
         dispatcher.dispatch({
-            type: actionTypes.FILTER_LIST,
-            data: filterList
+            type: actionTypes.CREATE_USER_DETAIL,
+            data: savedUser
         });
-    }
+    });
+}
+export function updateUser(user) {
+    return axios.put(`/api/detailUser/${user.email}`, user).then((updatedUser) => {
+        dispatcher.dispatch({
+            type: actionTypes.UPDATE_USER_DETAIL,
+            data: updatedUser
+        });
+    });
 }
 
-/*const recipeObjectApi = await new Promise((resolve, reject) => {
-    req.open(
-        'GET',
-        URL_API_SEARCH +
-        newSearch,
-        true
-    );
-    req.onreadystatechange = function () {
-        if (req.readyState === 4) {
-            if (req.status === 200) {
-                resolve(JSON.parse(req.responseText));
-            } else {
-                reject('Error Loading page');
-            }
-        }
-    };
-    req.send(null);
-});*/
 
-   // const objectConverted = await recipeObjectApi.hits.map(objectConversor);
 
-/*  const actualAction = await myDispatch(
-      actionTypes.LOAD_DETAIL_USER,
-      objectConverted
-  );
-
-  return actualAction;
-}
-
-function myDispatch(actualActionType, actualData) {
-  return dispatcher.dispatch({
-      type: actualActionType,
-      data: actualData
-  });
-}*/
 
 

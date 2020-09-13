@@ -4,7 +4,8 @@ import actionTypes from '../actions/actionTypes';
 
 const CHANGE_EVENT = 'change';
 let _users = [];
-let filterList = [];
+let coordinates = {};
+
 class UserStore extends EventEmitter {
     addChangeListener(callback) {
         this.on(CHANGE_EVENT, callback);
@@ -21,12 +22,23 @@ class UserStore extends EventEmitter {
     }
     getDetailUserById(id) {
 
-        //console.log("ara estic al store", actualUser);
-        return _users.find((user) => user._id === id);;
+
+        return _users.find((user) => user._id === id);
     }
-    getFilterList() {
+    getDetailUserByEmail(email) {
+        return _users.find((user) => user.email === email);
+    }
+    isSaved() {
+        return true;
+    }
+    getCoordinates() {
+        console.log('--------', coordinates);
+        return coordinates;
+    }
+    /*getFilterList() {
         return filterList;
-    }
+    }*/
+
 }
 
 const userStore = new UserStore();
@@ -42,12 +54,13 @@ dispatcher.register((action) => {
             _users = action.data;
             userStore.emitChange(_users);
             break;
-        case actionTypes.FILTERLIST:
-            filterList = action.data;
-
-            userStore.emitChange(filterList);
+        case actionTypes.CREATE_USER_DETAIL:
+            userStore.emitChange(true);
             break;
-
+        case actionTypes.GET_COORDINATES:
+            coordinates = action.data;
+            userStore.emitChange(coordinates);
+            break;
         default: break;
 
     }

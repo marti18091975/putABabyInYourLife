@@ -16,6 +16,12 @@
   box-shadow: 10px 10px 20px black;
   border-radius: 22px;
 }
+.search-button {
+  margin-left: 59;
+
+  background-color: rgb(3, 3, 80);
+  color: white;
+}
 .input__filter {
   width: 50px;
 }
@@ -58,4 +64,10 @@
 }
 .civilState__options--section {
   display: flex;
+}
+.checkbox__input {
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+  margin-left: 10px;
 }

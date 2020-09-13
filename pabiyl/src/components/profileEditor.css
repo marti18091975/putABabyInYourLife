@@ -4,10 +4,7 @@
   flex-direction: column;
   align-items: center;
 }
-.group-three {
-  display: flex;
-  flex-wrap: wrap;
-}
+
 .main__detail--top {
   display: flex;
   flex-direction: column;
@@ -23,7 +20,7 @@
   flex-direction: row;
   justify-content: space-around;
 }
-.presentation {
+.presentation--profile {
   width: 70%;
   background-color: rgb(166, 151, 247);
   padding: 30px;
@@ -60,8 +57,8 @@
   display: flex;
   align-items: center;
 }
-.text__detail {
-  color: rgb(245, 250, 240);
+.text__detail--profile {
+  color: black;
   font-size: 22px;
   margin-left: 2vw;
   padding: 0.5vw;
@@ -70,6 +67,7 @@
 .icon__detail {
   width: 40px;
   height: 40px;
+  margin-right: 20px;
 }
 .name__detail {
   font-size: 45px;
@@ -82,19 +80,19 @@
   margin: 20px;
 }
 .image__secundary {
-  width: 350px;
+  max-width: 323px;
   margin-top: 20px;
 
-  height: 265px;
+  max-height: 265px;
 
   align-self: center;
 }
-.image__main {
+.image__main--profile {
   width: 108%;
   min-width: 340px;
   max-width: 340px;
   max-height: 512px;
-  height: 489px;
+  height: 462px;
   text-align: center;
 }
 .right-side__detail {
@@ -103,41 +101,92 @@
   flex-direction: column;
   justify-content: space-around;
 }
-.container__info {
+.container__info--profile {
   padding-top: 20px;
+  padding-bottom: 20px;
   width: auto;
-  height: auto;
+  height: 400px;
   align-self: center;
+  display: flex;
+  justify-content: space-around;
   background-color: rgb(19, 8, 83);
   color: rgb(245, 250, 240);
   margin-top: 18px;
 }
-.bt__outside {
-  display: none;
+
+input {
+  width: 100px;
+  height: 25px;
+  color: black;
 }
-.bt__inside {
+.checkbox {
+  width: 10px;
+  height: 10px;
+}
+.input__name {
+  margin-left: 30px;
+  width: 174px;
+  height: 27px;
+  margin-top: 20px;
+}
+.civil__checkbox--container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.civil__chekbox--container-side {
   display: flex;
   flex-direction: row;
-  width: 100%;
+  align-items: center;
   justify-content: space-around;
-  margin-top: 30px;
-  padding-bottom: 20px;
 }
-.buttonE-mail {
-  width: 100px;
-  height: 50px;
-  background-image: url("https://image.flaticon.com/icons/svg/91/91848.svg");
-  background-size: 100%100%;
-}
+.no-photo {
+  background-color: grey;
+  color: grey;
 
-.buttonChat {
-  width: 100px;
-  height: 50px;
-  background-image: url("https://image.flaticon.com/icons/svg/561/561119.svg");
-  background-size: 100%100%;
-  background-repeat: no-repeat;
+  text-align: center;
+  line-height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+.hidden {
+  opacity: 0;
+  -moz-opacity: 0;
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+  width: 5px;
+}
+.progressBar {
+  height: 20px;
+}
+.label {
+  color: black;
+}
+.button__container {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 30px;
+  margin-bottom: 50px;
 
+  align-items: center;
+}
+.navLink__exit {
+  border: solid 1px black;
+  background-color: rgb(221, 218, 218);
+  color: black;
+  margin-left: 60px;
+  font-size: 11px;
+  padding: 5px;
+}
+.post-button {
+  width: 100px;
+  background-color: rgb(3, 3, 80);
+  color: rgb(245, 250, 240);
+}
+.presentation--profile {
+  width: 100%;
+}
 @media screen and (min-width: 700px) {
   .container__bottom--detail {
     display: flex;
@@ -149,13 +198,13 @@
     flex-direction: column;
     justify-content: space-around;
   }
-  .container__info {
-    height: 305px;
-  }
+
   .left-side__bottom {
+    margin-top: 20px;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-around;
   }
 
   .bt__inside {
@@ -165,7 +214,7 @@
   .title {
     font-size: 30px;
   }
-  .presentation {
+  .presentation--profile {
     font-size: 20px;
     align-self: flex-end;
   }
@@ -176,7 +225,8 @@
   .left-side {
     width: 698px;
 
-    height: 630px;
+    height: auto;
+    margin-bottom: 30px;
   }
   .center__left {
     flex-direction: row;
@@ -192,20 +242,8 @@
     justify-content: space-around;
     width: 700px;
   }
-  .bt__outside {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  .buttonChat {
-    margin-top: 20px;
-  }
 }
 @media screen and (min-width: 1050px) {
-  .container__info {
-    height: 305px;
-  }
   .right-side__detail {
     width: auto;
     flex-direction: column;
@@ -215,17 +253,9 @@
     flex-direction: row;
     align-items: center;
   }
-  .bt__outside {
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-around;
-    margin-top: 30px;
-  }
-  .image__main {
-    margin-top: -49px;
-    padding-left: 20px;
-  }
-  .buttonChat {
+
+  .image__main--profile {
     margin-top: 0px;
+    padding-left: 20px;
   }
 }
