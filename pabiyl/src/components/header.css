@@ -65,7 +65,7 @@
 }
 .nav__header {
   text-decoration: none;
-  font-family: Georgia, "Times New Roman", Times, serif;
+
   color: black;
   font-size: 16px;
 }
@@ -76,12 +76,12 @@
 .burguer-button:hover > .burguer-menu {
   display: block;
 }
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 600px) {
   .title__header {
     display: inline;
     margin-right: 10px;
-    font-size: 22px;
-    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 34px;
+
     color: rgb(237, 245, 244);
   }
 }

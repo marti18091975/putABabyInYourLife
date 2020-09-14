@@ -124,18 +124,18 @@
   padding-bottom: 20px;
 }
 .buttonE-mail {
-  width: 100px;
-  height: 50px;
-  background-image: url("https://image.flaticon.com/icons/svg/91/91848.svg");
+  width: 150px;
+  height: 80px;
+  padding: 5px;
+  background-color: rgb(19, 8, 83);
+
+  background-image: url("https://www.flaticon.es/svg/static/icons/svg/601/601248.svg");
   background-size: 100%100%;
 }
 
-.buttonChat {
+.btn__navLink {
   width: 100px;
   height: 50px;
-  background-image: url("https://image.flaticon.com/icons/svg/561/561119.svg");
-  background-size: 100%100%;
-  background-repeat: no-repeat;
 }
 
 @media screen and (min-width: 700px) {

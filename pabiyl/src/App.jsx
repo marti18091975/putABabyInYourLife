@@ -12,6 +12,9 @@ import SearchFilters from "./components/SearchFilters";
 import Profile from "./components/Profile";
 import ProfileEditor from "./components/ProfileEditor";
 import Footer from "./components/Footer";
+import EmailsList from "./components/emails/ListEmails";
+import DetailEmail from "./components/emails/DetailEmail";
+import EmailEdit from "./components/emails/EmailEdit";
 
 function App(props) {
   const [userLogued, setUserLogued] = useState(false);
@@ -36,6 +39,9 @@ function App(props) {
         <Route path="/detailUser/" component={DetailUser} />
         <Route path="/listUsers/" component={ListUsers} />
         <Route path="/searchFilters/" component={SearchFilters} />
+        <Route path="/messages/" component={EmailsList} />
+        <Route path="/email/:emailId" component={DetailEmail} />
+        <Route path="/emailEdit/:detailUserId" component={EmailEdit} />
       </Switch>
       {userLogued && <Footer />}
     </>

@@ -4,7 +4,7 @@ function Footer() {
   return (
     <section className="main__footer">
       <img
-        src="https://firebasestorage.googleapis.com/v0/b/elevated-disk-182414.appspot.com/o/photos%2Ffoto1.jpg?alt=media&token=498d197f-bff9-4673-aadf-c23aa5189df2"
+        src="https://media-exp1.licdn.com/dms/image/C5603AQEZPiAr7_RCxA/profile-displayphoto-shrink_400_400/0?e=1602115200&v=beta&t=z8RyBtkp3SCyRZEnFBW1KU286hrCLlbxDYxbfSLyen8"
         className="image__footer"
       ></img>
       <div className="text__footer">Martí Amat Vila</div>

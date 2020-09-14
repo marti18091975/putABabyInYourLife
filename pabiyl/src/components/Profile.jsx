@@ -125,10 +125,8 @@ function Profile(props) {
             </div>
 
             <div className="buttons bt__inside">
-              <button className="buttonE-mail"></button>
-              <button className="buttonChat"></button>
               <NavLink className="navLink__edit" to="/profileEditor">
-                EDIT
+                <button className="btn__navLink">EDIT</button>
               </NavLink>
             </div>
           </section>
@@ -140,10 +138,8 @@ function Profile(props) {
         <section className="right-side__detail">
           <img className="image__main" src={mainImage} alt=""></img>
           <div className="buttons bt__outside">
-            <button className="buttonE-mail"></button>
-            <button className="buttonChat"></button>
             <NavLink className="navLink__edit" to="/profileEditor">
-              EDIT
+              <button className="btn__navLink">EDIT</button>
             </NavLink>
           </div>
         </section>

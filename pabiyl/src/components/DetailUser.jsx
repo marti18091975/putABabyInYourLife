@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import userStore from "../stores/userStore";
 import { loadDetails } from "../actions/detailAction";
+import { NavLink } from "react-router-dom";
 
 import "./detailUser.css";
 
@@ -51,7 +52,7 @@ function DetailUser(props) {
   function onChange() {
     setDetailUsers(userStore.getDetailUsers());
   }
-
+  const link = "/emailEdit/" + detailElement._id;
   return (
     <main className="main__detail">
       <div className="main__detail--top">
@@ -123,10 +124,9 @@ function DetailUser(props) {
               </div>
             </div>
 
-            <div className="buttons bt__inside">
+            <NavLink className="buttons bt__inside" to={link}>
               <button className="buttonE-mail"></button>
-              <button className="buttonChat"></button>
-            </div>
+            </NavLink>
           </section>
           <section className="left-side__bottom">
             <img className="image__secundary" src={secondImage} alt=""></img>
@@ -135,10 +135,9 @@ function DetailUser(props) {
         </div>
         <section className="right-side__detail">
           <img className="image__main" src={mainImage} alt=""></img>
-          <div className="buttons bt__outside">
+          <NavLink className="buttons bt__outside" to={link}>
             <button className="buttonE-mail"></button>
-            <button className="buttonChat"></button>
-          </div>
+          </NavLink>
         </section>
       </div>
       <div className="presentation">{presentation}</div>

@@ -26,8 +26,8 @@ function MainPage(props) {
             <div className="navigation__container">
                 <div className="navigation__container--side">
                     <NavLink to="/profile" className="navigation__text">profile</NavLink>
-                    <NavLink to="/SearchFilters/" className="navigation__text" >find users</NavLink>
-                    <NavLink to="/detailUser/5f4e6fc673d494545cfbadfc" className="navigation__text">messages</NavLink>
+                    <NavLink to="/searchFilters/" className="navigation__text" >find users</NavLink>
+                    <NavLink to="/messages" className="navigation__text">messages</NavLink>
                 </div>
                 <div className="navigation__container--side">
                     <NavLink to="/detailUser/5f4e6fc673d494545cfbadfc" className="navigation__text">group activities</NavLink>

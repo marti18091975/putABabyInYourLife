@@ -8,6 +8,7 @@ const port = process.env.PORT || 4200;
 const cors = require('cors');
 
 const UserDetail = require('./models/userModel');
+const Email = require('./models/emailModel');
 
 mongoose.connect('mongodb://localhost:27017/pabiyl');
 app.use(cors());
@@ -19,6 +20,8 @@ app.get('/', (req, res) => {
 });
 
 const userDetailRouter = require('./routes/userDetailRoutes')(UserDetail);
+const emailRouter = require('./routes/emailRoutes')(Email);
 
 app.use('/api/detailUser', userDetailRouter);
+app.use('/api/email', emailRouter);
 app.listen(port, debug(`Server is running at port ${port}`));

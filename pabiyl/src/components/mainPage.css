@@ -1,9 +1,9 @@
 .main__main {
-  height: 100%;
+  height: 521px;
   width: 100%;
   background-image: url("https://freedesignfile.com/upload/2018/05/Parents-with-children-playing-football-Stock-Photo.jpg");
   background-size: auto 100%;
-  background-position: center -78px;
+  background-position: center 0px;
   background-repeat: no-repeat;
   margin-left: auto;
   margin-right: auto;
@@ -21,7 +21,7 @@
   flex-direction: row;
   height: 130px;
   width: 100%;
-  padding-top: 400px;
+  padding-top: 392px;
   margin-bottom: 20px;
   justify-content: space-between;
 }
@@ -45,7 +45,7 @@
   color: white;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 600px) {
   .title__main {
     display: none;
   }
@@ -62,11 +62,16 @@
   .navigation__text {
     font-size: 22px;
   }
+
+  .main__main {
+    background-size: 100% auto;
+  }
 }
 
 @media screen and (min-width: 820px) {
   .main__main {
     background-size: 100% auto;
+    background-position: center -80px;
   }
 }
 @media screen and (min-width: 1000px) {

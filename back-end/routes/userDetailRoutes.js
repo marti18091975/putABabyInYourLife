@@ -21,11 +21,11 @@ function routes(UserDetail) {
             });
         });
 
-    userDetailRouter.use('/:email', (req, res, next) => {
+    userDetailRouter.use('/:id', (req, res, next) => {
 
-        UserDetail.findById(req.params.email, (err, userDetail) => {
+        UserDetail.findById(req.params.id, (err, userDetail) => {
 
-
+            console.log("//////", req.params);
             if (err) res.send(err);
             if (userDetail) {
 
@@ -35,11 +35,25 @@ function routes(UserDetail) {
         });
     });
     userDetailRouter
-        .route('/:email')
+        .route('/:id')
         .put((req, res) => {
             const { userDetail } = req;
             if (userDetail) {
                 userDetail.name = req.body.name;
+                userDetail.gender = req.body.gender;
+                userDetail.age = req.body.age;
+                userDetail.city = req.body.city;
+                userDetail.country = req.body.country;
+                userDetail.civilState = req.body.civilState;
+                userDetail.sons = req.body.sons;
+                userDetail.job = req.body.job;
+                userDetail.mainImage = req.body.mainImage;
+                userDetail.secondImage = req.body.secondImage;
+                userDetail.thirdImage = req.body.thirdImage;
+                userDetail.presentation = req.body.presentation;
+                userDetail.email = req.body.email;
+                userDetail.latitude = req.body.latitude;
+                userDetail.longitude = req.body.longitude;
                 userDetail.save((err) => {
                     if (err) {
                         res.send(err);

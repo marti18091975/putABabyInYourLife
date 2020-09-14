@@ -24,7 +24,7 @@ export function saveUser(user) {
     });
 }
 export function updateUser(user) {
-    return axios.put(`/api/detailUser/${user.email}`, user).then((updatedUser) => {
+    return axios.put(`/api/detailUser/${user._id}`, user).then((updatedUser) => {
         dispatcher.dispatch({
             type: actionTypes.UPDATE_USER_DETAIL,
             data: updatedUser

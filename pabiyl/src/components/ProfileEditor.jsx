@@ -8,7 +8,7 @@ import authStore from "../stores/authStore";
 import coordinateStore from "../stores/coordinateStore";
 import { NavLink } from "react-router-dom";
 
-function Profile(props) {
+function ProfileEditor(props) {
   const [user, setUser] = useState();
   const [uploadValue, setUploadValue] = useState(0);
   const [uploadValue2, setUploadValue2] = useState(0);
@@ -137,10 +137,10 @@ function Profile(props) {
           civilState,
           sons,
           job,
-          presentation,
           mainImage,
           secondImage,
           thirdImage,
+          presentation,
           email,
           latitude,
           longitude,
@@ -546,4 +546,4 @@ function Profile(props) {
     </main>
   );
 }
-export default Profile;
+export default ProfileEditor;
