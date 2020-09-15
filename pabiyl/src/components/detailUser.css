@@ -91,11 +91,12 @@
 }
 .image__main {
   width: 108%;
-  min-width: 340px;
-  max-width: 340px;
+  min-width: 358px;
+  max-width: 358px;
   max-height: 512px;
-  height: 489px;
+  height: 450px;
   text-align: center;
+  margin-top: 20px;
 }
 .right-side__detail {
   display: flex;
@@ -124,6 +125,15 @@
   padding-bottom: 20px;
 }
 .buttonE-mail {
+  width: 100px;
+  height: 50px;
+  padding: 5px;
+  background-color: rgb(195, 194, 197);
+
+  background-image: url("https://www.flaticon.es/svg/static/icons/svg/601/601248.svg");
+  background-size: 100%100%;
+}
+.buttonE-mail--outside {
   width: 150px;
   height: 80px;
   padding: 5px;
@@ -136,6 +146,13 @@
 .btn__navLink {
   width: 100px;
   height: 50px;
+}
+.btn__navLink--outside {
+  width: 150px;
+  height: 80px;
+  font-size: 24px;
+  background-color: rgb(19, 8, 83);
+  color: white;
 }
 
 @media screen and (min-width: 700px) {
@@ -219,13 +236,10 @@
     flex-direction: row;
     width: 100%;
     justify-content: space-around;
-    margin-top: 30px;
+    margin-top: 22px;
   }
   .image__main {
-    margin-top: -49px;
+    margin-top: -69px;
     padding-left: 20px;
-  }
-  .buttonChat {
-    margin-top: 0px;
   }
 }

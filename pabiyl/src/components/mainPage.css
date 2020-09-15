@@ -1,5 +1,5 @@
 .main__main {
-  height: 521px;
+  height: 581px;
   width: 100%;
   background-image: url("https://freedesignfile.com/upload/2018/05/Parents-with-children-playing-football-Stock-Photo.jpg");
   background-size: auto 100%;
@@ -23,19 +23,12 @@
   width: 100%;
   padding-top: 392px;
   margin-bottom: 20px;
-  justify-content: space-between;
-}
-.navigation__container--side {
-  display: flex;
-  flex-direction: column;
   justify-content: space-around;
-  width: 159px;
 }
 
 .navigation__text {
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-size: 15px;
-  color: rgb(8, 8, 8);
+  font-size: 16px;
+  color: rgb(7, 7, 7);
   font-weight: bold;
   text-decoration: none;
   padding: 5px 10px;
@@ -43,6 +36,34 @@
 
 .navigation__text:hover {
   color: white;
+}
+.main__footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 385px;
+  height: 56px;
+  background-color: rgb(75, 95, 184);
+}
+.image__footer {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.icon__footer {
+  height: 40px;
+  width: 80px;
+  background-color: rgb(250, 252, 249);
+  margin-left: 60px;
+  margin-right: 60px;
+  padding: 5px;
+}
+.text__footer {
+  font-size: 14px;
+  margin-left: 10px;
 }
 
 @media screen and (min-width: 600px) {
@@ -55,23 +76,20 @@
     flex-direction: column;
     justify-content: center;
     height: 320px;
-    padding-top: 240px;
+    padding-top: 437px;
     margin-bottom: 40px;
     margin-left: 40px;
   }
   .navigation__text {
-    font-size: 22px;
-  }
-
-  .main__main {
-    background-size: 100% auto;
+    font-size: 30px;
+    color: white;
   }
 }
 
-@media screen and (min-width: 820px) {
+@media screen and (min-width: 730px) {
   .main__main {
     background-size: 100% auto;
-    background-position: center -80px;
+    background-position: center;
   }
 }
 @media screen and (min-width: 1000px) {

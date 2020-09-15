@@ -37,7 +37,7 @@ export async function googleLogin() {
         const action = myDispatch(actionTypes.LOGIN, googleUser);
         return action;
     } catch (e) {
-        window.alert('Error in login process');
+        console.log(e);
     }
 }
 
@@ -50,10 +50,9 @@ export async function anonymousLogin() {
 export async function createUser(email, password) {
     try {
         const newUser = await authMethods.createUser(email, password);
-        console.log(newUser);
         const action = myDispatch(actionTypes.CREATE_USER, newUser);
         return action;
     } catch (e) {
-        alert(e);
+        console.log(e);
     }
 }

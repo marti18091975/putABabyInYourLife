@@ -46,13 +46,6 @@ function ProfileEditor(props) {
     getCoordinates(city);
   }
 
-  /*useEffect(() => {
-    userStore.addChangeListener(onChange);
-    return () => userStore.removeChangeListener(onChange);
-  }, []);
-  function onChange() {
-    setIcon(userStore.isSaved());
-  }*/
   useEffect(() => {
     coordinateStore.addChangeListener(onChange);
     return () => coordinateStore.removeChangeListener(onChange);
@@ -61,92 +54,91 @@ function ProfileEditor(props) {
     setTimeout(() => {
       latitude = coordinateStore.getCoordinates().data[0].lat;
       longitude = coordinateStore.getCoordinates().data[0].lon;
-      if (userStore.getDetailUserByEmail(email) === 0) {
-        saveUser({
-          name,
-          gender,
-          age,
-          city,
-          country,
-          civilState,
-          sons,
-          job,
-          presentation,
-          mainImage,
-          secondImage,
-          thirdImage,
-          email,
-          latitude,
-          longitude,
-        });
-      } else {
-        const user = userStore.getDetailUserByEmail(email);
-        _id = user._id;
-        if (!name) {
-          name = user.name;
+      if (email) {
+        if (!userStore.getDetailUserByEmail(email)) {
+          saveUser({
+            name,
+            gender,
+            age,
+            city,
+            country,
+            civilState,
+            sons,
+            job,
+            presentation,
+            mainImage,
+            secondImage,
+            thirdImage,
+            email,
+            latitude,
+            longitude,
+          });
+        } else {
+          const user = userStore.getDetailUserByEmail(email);
+          _id = user._id;
+          if (!name) {
+            name = user.name;
+          }
+          if (!gender) {
+            gender = user.gender;
+          }
+          if (!age) {
+            age = user.age;
+          }
+          if (!city) {
+            city = user.city;
+            latitude = user.latitude;
+            longitude = user.longitude;
+          }
+          if (!country) {
+            country = user.country;
+          }
+          if (!civilState) {
+            civilState = user.civilState;
+          }
+          if (!sons) {
+            sons = user.sons;
+          }
+          if (!job) {
+            job = user.job;
+          }
+          if (!presentation) {
+            presentation = user.presentation;
+          }
+          if (!mainImage) {
+            mainImage = user.mainImage;
+          }
+          if (!secondImage) {
+            secondImage = user.secondImage;
+          }
+          if (!thirdImage) {
+            thirdImage = user.thirdImage;
+          }
+          if (!latitude) {
+            latitude = user.latitude;
+          }
+          if (!longitude) {
+            longitude = user.longitude;
+          }
+          updateUser({
+            _id,
+            name,
+            gender,
+            age,
+            city,
+            country,
+            civilState,
+            sons,
+            job,
+            mainImage,
+            secondImage,
+            thirdImage,
+            presentation,
+            email,
+            latitude,
+            longitude,
+          });
         }
-        if (!gender) {
-          gender = user.gender;
-        }
-        if (!age) {
-          age = user.age;
-        }
-        if (!city) {
-          city = user.city;
-          latitude = user.latitude;
-          longitude = user.longitude;
-        }
-        if (!country) {
-          country = user.country;
-        }
-        if (!civilState) {
-          civilState = user.civilState;
-        }
-        if (!sons) {
-          sons = user.sons;
-        }
-        if (!job) {
-          job = user.job;
-        }
-        if (!presentation) {
-          presentation = user.presentation;
-        }
-        if (!mainImage) {
-          mainImage = user.mainImage;
-        }
-        if (!secondImage) {
-          secondImage = user.secondImage;
-        }
-        if (!thirdImage) {
-          thirdImage = user.thirdImage;
-        }
-        if (!latitude) {
-          latitude = user.latitude;
-        }
-        if (!longitude) {
-          longitude = user.longitude;
-        }
-
-        updateUser({
-          _id,
-          name,
-          gender,
-          age,
-          city,
-          country,
-          civilState,
-          sons,
-          job,
-          mainImage,
-          secondImage,
-          thirdImage,
-          presentation,
-          email,
-          latitude,
-          longitude,
-        });
-
-        console.log("!!!!!!", country);
       }
     }, 2000);
   }

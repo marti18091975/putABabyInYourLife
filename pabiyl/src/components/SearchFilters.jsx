@@ -37,7 +37,6 @@ function SearchFilters(props) {
     married: { married },
     gender: { gender },
   };
-  console.log("aquests són els filtres", filters, withJob, withSons);
 
   function onFieldChange(value, setValue) {
     setValue(value);
@@ -51,12 +50,14 @@ function SearchFilters(props) {
   }, []);
   function onChange() {
     setUsers(userStore.getDetailUsers());
-    setLat1(userStore.getDetailUserByEmail(email).latitude);
-    setLon1(userStore.getDetailUserByEmail(email).longitude);
-    if (userStore.getDetailUserByEmail(email).gender === "male") {
-      setGender("female");
-    } else {
-      setGender("male");
+    if (email) {
+      setLat1(userStore.getDetailUserByEmail(email).latitude);
+      setLon1(userStore.getDetailUserByEmail(email).longitude);
+      if (userStore.getDetailUserByEmail(email).gender === "male") {
+        setGender("female");
+      } else {
+        setGender("male");
+      }
     }
   }
   let getKilometers = function (lat1, lon1, lat2, lon2) {
@@ -74,30 +75,31 @@ function SearchFilters(props) {
         Math.sin(dLong / 2);
     var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     var d = R * c;
-    console.log("$$$$$$", d);
-    return d.toFixed(3); //Retorna tres decimales
+    return d.toFixed(3);
   };
   function usingFilters() {
-    if (!users) {
-      loadDetails();
-    } else {
-      let userResult = users.filter(
-        (element) =>
-          element.age >= +ageDown &&
-          element.age <= +ageUp &&
-          +getKilometers(lat1, lon1, element.latitude, element.longitude) <=
-            +distance &&
-          ((element.sons > 0 && withSons === "yes") ||
-            (element.sons === 0 && withoutSons === "no")) &&
-          ((element.job === "yes" && withJob === "yes") ||
-            (element.job === "no" && withoutJob === "no")) &&
-          ((element.civilState === "single" && single === "single") ||
-            (element.civilState === "divorced" && divorced === "divorced") ||
-            (element.civilState === "widow" && widow === "widow") ||
-            (element.civilState === "married" && married === "married")) &&
-          element.gender === gender
-      );
-      setUsersList(userResult);
+    if (email) {
+      if (!users) {
+        loadDetails();
+      } else {
+        let userResult = users.filter(
+          (element) =>
+            element.age >= +ageDown &&
+            element.age <= +ageUp &&
+            +getKilometers(lat1, lon1, element.latitude, element.longitude) <=
+              +distance &&
+            ((element.sons > 0 && withSons === "yes") ||
+              (element.sons === 0 && withoutSons === "no")) &&
+            ((element.job === "yes" && withJob === "yes") ||
+              (element.job === "no" && withoutJob === "no")) &&
+            ((element.civilState === "single" && single === "single") ||
+              (element.civilState === "divorced" && divorced === "divorced") ||
+              (element.civilState === "widow" && widow === "widow") ||
+              (element.civilState === "married" && married === "married")) &&
+            element.gender === gender
+        );
+        setUsersList(userResult);
+      }
     }
   }
 

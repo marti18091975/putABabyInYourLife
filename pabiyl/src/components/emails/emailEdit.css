@@ -12,12 +12,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  word-break: break-word;
   padding: 20px;
   background-color: rgb(19, 8, 83);
   box-shadow: 10px 10px 20px black;
   border-radius: 22px;
   margin-bottom: 20px;
-  margin-top: 20px;
+  margin-top: 63px;
 }
 .name__email--edit {
   font-size: 22px;

@@ -1,5 +1,5 @@
 .main__login {
-  height: 521px;
+  height: 581px;
   display: flex;
   align-items: center;
 }
@@ -15,7 +15,7 @@
   align-items: center;
   background-color: rgb(122, 139, 214);
   width: 350px;
-  height: 538px;
+  height: 508px;
   border-radius: 22px;
   box-shadow: 10px 10px 20px black;
   margin: auto auto;

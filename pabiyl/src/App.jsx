@@ -11,7 +11,6 @@ import authStore from "./stores/authStore";
 import SearchFilters from "./components/SearchFilters";
 import Profile from "./components/Profile";
 import ProfileEditor from "./components/ProfileEditor";
-import Footer from "./components/Footer";
 import EmailsList from "./components/emails/ListEmails";
 import DetailEmail from "./components/emails/DetailEmail";
 import EmailEdit from "./components/emails/EmailEdit";
@@ -43,7 +42,6 @@ function App(props) {
         <Route path="/email/:emailId" component={DetailEmail} />
         <Route path="/emailEdit/:detailUserId" component={EmailEdit} />
       </Switch>
-      {userLogued && <Footer />}
     </>
   );
 }

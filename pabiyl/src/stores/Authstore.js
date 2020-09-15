@@ -52,6 +52,7 @@ dispatcher.register((action) => {
         case actionTypes.CREATE_USER:
             _userEmail = action.data.user.email;
             _userProfile = action.data;
+            _isLogged = !!action.data;
             authStore.emitChange();
             break;
         default:

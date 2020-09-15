@@ -29,13 +29,27 @@ describe('UserStore', () => {
         expect(callback).toBeCalled();
         expect(userStore).toBeDefined();
     });
-    it('should register GET_USERS', () => {
+    it('should register LOAD_USERS', () => {
         expect(userStore.getDetailUsers()).toEqual(action.data);
     });
-    it('should register GET_USER_BY_ID', () => {
+    it('should get user by id', () => {
         expect(
             userStore.getDetailUserById('5f52243873d494545cfbadfe')
         ).toEqual(action.data[0]);
+    });
+    it('should subscribe to addChangeListener', () => {
+        const mockFunct = jest.fn();
+        userStore.addChangeListener(mockFunct);
+        userStore.emitChange();
+        expect(mockFunct).toHaveBeenCalled();
+    });
+
+    it('should unsubscribe from addChangeListener', () => {
+        const mockFunct = jest.fn();
+        userStore.addChangeListener(mockFunct);
+        userStore.emitChange();
+        userStore.removeChangeListener(mockFunct);
+        expect(mockFunct).toHaveBeenCalled();
     });
 
 

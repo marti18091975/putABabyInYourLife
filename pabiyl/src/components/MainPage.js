@@ -24,19 +24,21 @@ function MainPage(props) {
         <main className="main__main">
             <div className="title__main">Put a baby in your life</div>
             <div className="navigation__container">
-                <div className="navigation__container--side">
-                    <NavLink to="/profile" className="navigation__text">profile</NavLink>
-                    <NavLink to="/searchFilters/" className="navigation__text" >find users</NavLink>
-                    <NavLink to="/messages" className="navigation__text">messages</NavLink>
-                </div>
-                <div className="navigation__container--side">
-                    <NavLink to="/detailUser/5f4e6fc673d494545cfbadfc" className="navigation__text">group activities</NavLink>
-                    <NavLink to="/detailUser/5f4e6fc673d494545cfbadfc" className="navigation__text">chat</NavLink>
-                </div>
-                <div className="navigation__container--side">
-                    <NavLink to="/detailUser/5f4e6fc673d494545cfbadfc" className="navigation__text">users experiencies</NavLink>
-                    <NavLink to="/detailUser/5f4e6fc673d494545cfbadfc" className="navigation__text">legal doubts</NavLink>
-                </div>
+                <NavLink to="/profile" className="navigation__text">PROFILE</NavLink>
+                <NavLink to="/searchFilters/" className="navigation__text" >FIND USERS</NavLink>
+                <NavLink to="/messages" className="navigation__text">MESSAGES</NavLink>
+                <section className="main__footer">
+                    <img
+                        src="https://media-exp1.licdn.com/dms/image/C5603AQEZPiAr7_RCxA/profile-displayphoto-shrink_400_400/0?e=1602115200&v=beta&t=z8RyBtkp3SCyRZEnFBW1KU286hrCLlbxDYxbfSLyen8"
+                        className="image__footer"
+                    ></img>
+                    <div className="text__footer">Martí Amat Vila</div>
+
+                    <img
+                        src="https://www.skylabcoders.com/images/403/default.png"
+                        className="icon__footer"
+                    ></img>
+                </section>
 
             </div>
         </main >

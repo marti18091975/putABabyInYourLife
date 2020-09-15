@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 import "./detailUser.css";
 
 function DetailUser(props) {
-  let detailUserId = "5f4e6fc673d494545cfbadfc";
+  let detailUserId = null;
   const [detailUsers, setDetailUsers] = useState(userStore.getDetailUsers());
   const [detailElement, setDetailElement] = useState({});
   const [name, setName] = useState();
@@ -136,7 +136,7 @@ function DetailUser(props) {
         <section className="right-side__detail">
           <img className="image__main" src={mainImage} alt=""></img>
           <NavLink className="buttons bt__outside" to={link}>
-            <button className="buttonE-mail"></button>
+            <button className="buttonE-mail--outside"></button>
           </NavLink>
         </section>
       </div>

@@ -25,7 +25,7 @@ describe('Auth Store', () => {
         action = {
             type: actionTypes.LOGIN,
             data: {
-                email: 'test@gmail.com',
+                user: { email: 'test@gmail.com' },
                 password: 123456
             }
         }
@@ -46,7 +46,8 @@ describe('Auth Store', () => {
     });
     it('should register LOGIN', () => {
         action = {
-            type: actionTypes.LOGIN
+            type: actionTypes.LOGIN,
+            data: { user: { email: 'test@gmail.com' } }
         }
 
         dispatcher.dispatch(action);
@@ -68,7 +69,7 @@ describe('Auth Store', () => {
         action = {
             type: actionTypes.CREATE_USER,
             data: {
-                email: 'test@gmail.com',
+                user: { email: 'test@gmail.com' },
                 password: 123456
             }
         }
@@ -79,7 +80,21 @@ describe('Auth Store', () => {
     });
     it('should get if user is loged', () => {
         expect(authStore.isLogged()).toBeDefined();
-    })
+    });
+    it('should subscribe to addChangeListener', () => {
+        const mockFunct = jest.fn();
+        authStore.addChangeListener(mockFunct);
+        authStore.emitChange();
+        expect(mockFunct).toHaveBeenCalled();
+    });
+
+    it('should unsubscribe from addChangeListener', () => {
+        const mockFunct = jest.fn();
+        authStore.addChangeListener(mockFunct);
+        authStore.emitChange();
+        authStore.removeChangeListener(mockFunct);
+        expect(mockFunct).toHaveBeenCalled();
+    });
 
 
 

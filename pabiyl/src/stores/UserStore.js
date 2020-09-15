@@ -31,13 +31,7 @@ class UserStore extends EventEmitter {
     isSaved() {
         return true;
     }
-    getCoordinates() {
-        console.log('--------', coordinates);
-        return coordinates;
-    }
-    /*getFilterList() {
-        return filterList;
-    }*/
+
 
 }
 
@@ -57,10 +51,7 @@ dispatcher.register((action) => {
         case actionTypes.CREATE_USER_DETAIL:
             userStore.emitChange(true);
             break;
-        case actionTypes.GET_COORDINATES:
-            coordinates = action.data;
-            userStore.emitChange(coordinates);
-            break;
+
         default: break;
 
     }

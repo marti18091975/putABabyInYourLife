@@ -1,5 +1,5 @@
 .main__window {
-  height: 657px;
+  height: 585px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,7 +17,7 @@
   border-radius: 22px;
 }
 .search-button {
-  margin-left: 59;
+  margin-left: 59px;
 
   background-color: rgb(3, 3, 80);
   color: white;

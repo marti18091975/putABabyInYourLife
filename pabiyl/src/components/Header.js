@@ -42,10 +42,8 @@ function Header(props) {
                     <li className="menu__header">
                         <NavLink to="/profile" className="nav__header">profile</NavLink></li>
                     <li className="menu__header"><NavLink to="/searchFilters" className="nav__header">find users</NavLink></li>
-                    <li className="menu__header"><NavLink to="/detailUser" className="nav__header">messages</NavLink></li>
-                    <li className="menu__header"><NavLink to="/detailUser" className="nav__header">group activities</NavLink></li>
-                    <li className="menu__header"><NavLink to="/detailUser" className="nav__header">chat</NavLink></li>
-                    <li className="menu__header"><NavLink to="/detailUser" className="nav__header">users experiencies</NavLink></li>
+                    <li className="menu__header"><NavLink to="/messages" className="nav__header">messages</NavLink></li>
+
                 </ul>
             </button>
             <div className="container__header">

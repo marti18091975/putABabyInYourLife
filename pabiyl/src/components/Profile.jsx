@@ -139,7 +139,7 @@ function Profile(props) {
           <img className="image__main" src={mainImage} alt=""></img>
           <div className="buttons bt__outside">
             <NavLink className="navLink__edit" to="/profileEditor">
-              <button className="btn__navLink">EDIT</button>
+              <button className="btn__navLink--outside">EDIT</button>
             </NavLink>
           </div>
         </section>
