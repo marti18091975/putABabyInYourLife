@@ -7,7 +7,8 @@
 }
 .email-list {
   width: 600px;
-  height: 483px;
+  height: auto;
+  min-height: 480px;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -5,6 +5,7 @@ import actionTypes from './actionTypes';
 jest.dontMock('./emailActions');
 jest.mock('axios');
 jest.mock('../Dispatcher');
+
 describe('Email action', () => {
     afterEach(() => {
         dispatcher.dispatch.mockClear();

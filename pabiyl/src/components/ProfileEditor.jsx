@@ -502,7 +502,7 @@ function ProfileEditor(props) {
           )}
           {urlPicture3 && (
             <img
-              className="image__main"
+              className="image__main--profile"
               width="320"
               src={urlPicture3}
               alt=""
@@ -516,7 +516,7 @@ function ProfileEditor(props) {
               onFieldChange(event.target.value, setPresentation)
             }
             placeholder="presentation"
-            className="presentation"
+            className="presentation--profile"
           ></input>
           <div className="button__container">
             <button onClick={postUserProfile} className="post-button">

@@ -1,5 +1,5 @@
 .main__window {
-  height: 585px;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,6 +15,7 @@
   background-color: rgb(122, 139, 214);
   box-shadow: 10px 10px 20px black;
   border-radius: 22px;
+  margin-top: 50px;
 }
 .search-button {
   margin-left: 59px;

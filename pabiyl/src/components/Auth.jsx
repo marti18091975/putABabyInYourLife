@@ -32,6 +32,7 @@ export default (props) => {
             className="logo__login"
             src="https://www.flaticon.es/svg/static/icons/svg/2444/2444603.svg"
           ></img>
+
           <label htmlFor="email">E-mail</label>
           <input
             type="email"
@@ -42,9 +43,13 @@ export default (props) => {
           <input
             type="password"
             id="password"
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            title="A valid password must have more than 7 characters, an uppercase letter, a lowercase letter and a number"
             className="email__box"
             onChange={(ev) => setPassword(ev.target.value)}
+            required
           ></input>
+
           <div className="section__bottom">
             <div className="section">
               <button

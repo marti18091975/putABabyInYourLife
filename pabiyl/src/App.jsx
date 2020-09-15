@@ -31,8 +31,8 @@ function App(props) {
       {userLogued && <Header />}
       <Switch>
         <Route path="/" exact component={Auth} />
-        <Route path="/profile" component={Profile} />
-        <Route path="/profileEditor" component={ProfileEditor} />
+        <Route path="/profile/" component={Profile} />
+        <Route path="/profileEditor/" component={ProfileEditor} />
         <Route path="/main/" component={MainPage} />
         <Route path="/detailUser/:detailUserId" component={DetailUser} />
         <Route path="/detailUser/" component={DetailUser} />
