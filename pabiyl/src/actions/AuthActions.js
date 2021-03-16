@@ -21,7 +21,7 @@ export async function login(email, password) {
         const action = myDispatch(actionTypes.LOGIN, emailUser);
         return action;
     } catch (error) {
-        throw 'Error in loggin process';
+        throw error;
     }
 }
 
@@ -37,7 +37,7 @@ export async function googleLogin() {
         const action = myDispatch(actionTypes.LOGIN, googleUser);
         return action;
     } catch (e) {
-        console.log(e);
+        throw e;
     }
 }
 
@@ -53,6 +53,6 @@ export async function createUser(email, password) {
         const action = myDispatch(actionTypes.CREATE_USER, newUser);
         return action;
     } catch (e) {
-        console.log(e);
+        throw e;
     }
 }

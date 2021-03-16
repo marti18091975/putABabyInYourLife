@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snapshot should match 1`] = `
+<div
+  className="main__login"
+>
+  <div
+    className="login-container"
+  >
+    <img
+      alt=""
+      className="logo__login"
+      src="https://www.flaticon.es/svg/static/icons/svg/2444/2444603.svg"
+    />
+    <label
+      htmlFor="email"
+    >
+      E-mail
+    </label>
+    <input
+      className="email__box"
+      onChange={[Function]}
+      type="email"
+    />
+    <label
+      htmlFor="password"
+    >
+      Password
+    </label>
+    <input
+      className="email__box"
+      id="password"
+      onChange={[Function]}
+      pattern="(?=.*\\\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+      required={true}
+      title="A valid password must have more than 7 characters, an uppercase letter, a lowercase letter and a number"
+      type="password"
+    />
+    <div
+      className="section__bottom"
+    >
+      <div
+        className="section"
+      >
+        <button
+          className="button__login login"
+          onClick={[Function]}
+        />
+        <button
+          className="button__login register"
+          onClick={[Function]}
+        />
+      </div>
+      <div
+        className="section"
+      >
+        <button
+          className="button__login google"
+          onClick={[Function]}
+        />
+        <button
+          className="button__login anon"
+          onClick={[Function]}
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./header.css";
+import "./header.scss";
 import userStore from "../stores/userStore";
 import { loadDetails } from "../actions/detailAction";
 import { NavLink } from "react-router-dom";
@@ -10,13 +10,16 @@ function Header(props) {
   const detailUserId = "5f4e6fc673d494545cfbadfc";
   const [name, setName] = useState();
   const [mainImage, setMainImage] = useState();
-  const [detailUsers, setDetailUsers] = useState(userStore.getDetailUsers());
-  const [userEmail, setUserEmail] = useState(authStore.getUserEmail());
+
+  const [userEmail] = useState(authStore.getUserEmail());
   const [variable, setVariable] = useState(false);
   useEffect(() => {
     userStore.addChangeListener(onChange);
 
     loadDetails();
+    return () => userStore.removeChangeListener(onChange);
+  }, [variable, userEmail, onChange]);
+  function onChange() {
     if (detailUserId) {
       const detailUser = userStore.getDetailUserByEmail(userEmail);
       if (detailUser) {
@@ -24,19 +27,15 @@ function Header(props) {
         setMainImage(detailUser.mainImage);
       }
     }
-    return () => userStore.removeChangeListener(onChange);
-  }, [variable]);
-
-  function onChange() {
-    setDetailUsers(userStore.getDetailUsers());
   }
+
   setTimeout(function () {
     if (!variable) {
       setVariable(true);
     } else {
       setVariable(false);
     }
-  }, 20000);
+  }, 10000);
 
   return (
     <section className="main__header">
@@ -76,7 +75,9 @@ function Header(props) {
         <div className="user__name">{name}</div>
         <img src={mainImage} alt="" className="user__image"></img>
       </div>
-      <button className="log-out" onClick={logout}></button>
+      <NavLink to="/">
+        <button className="log-out" onClick={logout}></button>
+      </NavLink>
     </section>
   );
 }

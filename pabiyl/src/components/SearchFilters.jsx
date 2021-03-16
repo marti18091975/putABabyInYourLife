@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import "./searchFilters.css";
+import "./searchFilters.scss";
 import userStore from "../stores/userStore";
 import authStore from "../stores/authStore";
-import { loadDetails, filterList } from "../actions/detailAction";
-import { Link } from "react-router-dom";
+import { loadDetails } from "../actions/detailAction";
 import ListUsers from "./ListUsers";
 function SearchFilters(props) {
-  const [email, setEmail] = useState(authStore.getUserEmail());
+  const [email] = useState(authStore.getUserEmail());
   const [lat1, setLat1] = useState();
   const [lon1, setLon1] = useState();
   const [gender, setGender] = useState();
@@ -23,20 +22,6 @@ function SearchFilters(props) {
   const [divorced, setDivorced] = useState();
   const [widow, setWidow] = useState();
   const [married, setMarried] = useState();
-  const filters = {
-    ageDown: { ageDown },
-    ageUp: { ageUp },
-    distance: { distance },
-    withSons: { withSons },
-    withoutSons: { withoutSons },
-    withoutJob: { withoutJob },
-    withJob: { withJob },
-    single: { single },
-    divorced: { divorced },
-    widow: { widow },
-    married: { married },
-    gender: { gender },
-  };
 
   function onFieldChange(value, setValue) {
     setValue(value);
@@ -46,20 +31,20 @@ function SearchFilters(props) {
 
     loadDetails();
 
-    return () => userStore.removeChangeListener(onChange);
-  }, []);
-  function onChange() {
-    setUsers(userStore.getDetailUsers());
-    if (email) {
-      setLat1(userStore.getDetailUserByEmail(email).latitude);
-      setLon1(userStore.getDetailUserByEmail(email).longitude);
-      if (userStore.getDetailUserByEmail(email).gender === "male") {
-        setGender("female");
-      } else {
-        setGender("male");
+    function onChange() {
+      setUsers(userStore.getDetailUsers());
+      if (email) {
+        setLat1(userStore.getDetailUserByEmail(email).latitude);
+        setLon1(userStore.getDetailUserByEmail(email).longitude);
+        if (userStore.getDetailUserByEmail(email).gender === "male") {
+          setGender("female");
+        } else {
+          setGender("male");
+        }
       }
     }
-  }
+    return () => userStore.removeChangeListener(onChange);
+  }, [email]);
   let getKilometers = function (lat1, lon1, lat2, lon2) {
     let rad = function (x) {
       return (x * Math.PI) / 180;

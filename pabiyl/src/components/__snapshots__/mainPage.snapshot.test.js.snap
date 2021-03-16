@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snapshot should match 1`] = `
+<main
+  className="main__main"
+>
+  <div
+    className="title__main"
+  >
+    Put a baby in your life
+  </div>
+  <div
+    className="navigation__container"
+  >
+    <a
+      aria-current={null}
+      className="navigation__text"
+      href="/profile"
+      onClick={[Function]}
+    >
+      PROFILE
+    </a>
+    <a
+      aria-current={null}
+      className="navigation__text"
+      href="/searchFilters/"
+      onClick={[Function]}
+    >
+      FIND USERS
+    </a>
+    <a
+      aria-current={null}
+      className="navigation__text"
+      href="/messages"
+      onClick={[Function]}
+    >
+      MESSAGES
+    </a>
+    <section
+      className="main__footer"
+    >
+      <img
+        alt=""
+        className="image__footer"
+        src="https://media-exp1.licdn.com/dms/image/C5603AQEZPiAr7_RCxA/profile-displayphoto-shrink_400_400/0?e=1602115200&v=beta&t=z8RyBtkp3SCyRZEnFBW1KU286hrCLlbxDYxbfSLyen8"
+      />
+      <div
+        className="text__footer"
+      >
+        Martí Amat Vila
+      </div>
+      <img
+        alt=""
+        className="icon__footer"
+        src="https://www.skylabcoders.com/images/403/default.png"
+      />
+    </section>
+  </div>
+</main>
+`;

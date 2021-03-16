@@ -25,7 +25,7 @@ function routes(UserDetail) {
 
         UserDetail.findById(req.params.id, (err, userDetail) => {
 
-            console.log("//////", req.params);
+
             if (err) res.send(err);
             if (userDetail) {
 
@@ -64,7 +64,7 @@ function routes(UserDetail) {
             } else {
                 res.status(404);
             }
-            console.log("estem fent un put");
+
         })
         .get((req, res) => res.send(req.userDetail));
     return userDetailRouter;

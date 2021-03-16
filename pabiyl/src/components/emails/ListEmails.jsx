@@ -5,24 +5,23 @@ import { loadEmails } from "../../actions/emailActions";
 import { NavLink } from "react-router-dom";
 import authStore from "../../stores/authStore";
 
-import "./listEmails.css";
+import "./listEmails.scss";
 
 function ListEmails(props) {
   const [emails, setEmails] = useState([]);
-  //let [actualEmails] = useState();
 
-  const [receptorEmail, setReceptorEmail] = useState(authStore.getUserEmail());
+  const [receptorEmail] = useState(authStore.getUserEmail());
 
   useEffect(() => {
     emailStore.addChangeListener(onChange);
 
     loadEmails();
 
+    function onChange() {
+      setEmails(emailStore.getEmailsByReceptor(receptorEmail));
+    }
     return () => emailStore.removeChangeListener(onChange);
-  }, []);
-  function onChange() {
-    setEmails(emailStore.getEmailsByReceptor(receptorEmail));
-  }
+  }, [receptorEmail]);
   const actualEmails = emails.map((email) => {
     const link = "/email/" + email._id;
     return (
@@ -40,7 +39,7 @@ function ListEmails(props) {
       </NavLink>
     );
   });
-  console.log("%%%%", actualEmails);
+
   return (
     <div className="main__list--email">
       {actualEmails && <ul className="email-list">{actualEmails}</ul>}

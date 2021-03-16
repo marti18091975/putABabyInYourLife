@@ -3,13 +3,11 @@ import userStore from "../stores/userStore";
 import { loadDetails } from "../actions/detailAction";
 import authStore from "../stores/authStore";
 import { NavLink } from "react-router-dom";
-
-import "./detailUser.css";
+import "./detailUser.scss";
 
 function Profile(props) {
-  const [email, setEmail] = useState(authStore.getUserEmail());
+  const [email] = useState(authStore.getUserEmail());
   const [detailUsers, setDetailUsers] = useState(userStore.getDetailUsers());
-  const [detailElement, setDetailElement] = useState({});
   const [name, setName] = useState();
   const [gender, setGender] = useState();
   const [age, setAge] = useState();
@@ -31,7 +29,6 @@ function Profile(props) {
     } else if (email) {
       const detailUser = userStore.getDetailUserByEmail(email);
       if (detailUser) {
-        setDetailElement(detailUser);
         setName(detailUser.name);
         setGender(detailUser.gender);
         setAge(detailUser.age);
@@ -46,12 +43,11 @@ function Profile(props) {
         setThirdImage(detailUser.thirdImage);
       }
     }
+    function onChange() {
+      setDetailUsers(userStore.getDetailUsers());
+    }
     return () => userStore.removeChangeListener(onChange);
-  }, [onChange]);
-
-  function onChange() {
-    setDetailUsers(userStore.getDetailUsers());
-  }
+  }, [detailUsers.length, email]);
 
   return (
     <main className="main__detail">

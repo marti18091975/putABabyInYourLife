@@ -35,7 +35,7 @@ class EmailStore extends EventEmitter {
 const emailStore = new EmailStore();
 
 dispatcher.register((action) => {
-    console.log("AQUEST ES EL ACTION", action);
+
     switch (action.type) {
         case actionTypes.LOAD_EMAILS:
             _emails = action.data;

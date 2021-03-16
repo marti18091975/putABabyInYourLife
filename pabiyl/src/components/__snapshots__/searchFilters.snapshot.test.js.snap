@@ -1,0 +1,221 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snapshot should match 1`] = `
+<div
+  className="main__window"
+>
+  <main
+    className="main__search-filters"
+  >
+    <form
+      id="searchForm"
+      method="get"
+    >
+      <div
+        className="filter__container "
+      >
+        <img
+          alt=""
+          className="filter__icon"
+          src="https://image.flaticon.com/icons/svg/3021/3021790.svg"
+        />
+        <div
+          className="age__filter--text filter__text"
+        >
+          from
+        </div>
+        <input
+          className="input__filter"
+          onChange={[Function]}
+          type="text"
+        />
+        <div
+          className="age__filter--text filter__text"
+        >
+          to
+        </div>
+        <input
+          className="input__filter"
+          onChange={[Function]}
+          type="text"
+        />
+      </div>
+      <div
+        className="filter__container"
+      >
+        <img
+          alt=""
+          className="filter__icon"
+          src="https://image.flaticon.com/icons/svg/1072/1072623.svg"
+        />
+        <div
+          className="distance__filter--text filter__text"
+        >
+          less than
+           
+        </div>
+        <input
+          className="input__filter"
+          onChange={[Function]}
+          type="text"
+        />
+        <div
+          className="distance__filter--text filter__text"
+        >
+           km 
+        </div>
+      </div>
+      <div
+        className="filter__container"
+      >
+        <img
+          alt=""
+          className="filter__icon"
+          src="https://image.flaticon.com/icons/svg/1761/1761430.svg"
+        />
+        <input
+          className="checkbox__input"
+          onChange={[Function]}
+          type="checkbox"
+          value="yes"
+        />
+        <div
+          className="sons__filter--text filter__text"
+        >
+          yes
+        </div>
+        <input
+          className="checkbox__input"
+          onChange={[Function]}
+          type="checkbox"
+          value="no"
+        />
+        <div
+          className="sons__filter--text filter__text"
+        >
+          no
+        </div>
+      </div>
+      <div
+        className="filter__container"
+      >
+        <img
+          alt=""
+          className="filter__icon "
+          src="https://image.flaticon.com/icons/svg/1063/1063196.svg"
+        />
+        <input
+          className="checkbox__input"
+          onChange={[Function]}
+          type="checkbox"
+          value="yes"
+        />
+        <div
+          className="work__filter--text filter__text"
+        >
+          yes
+        </div>
+        <input
+          className="checkbox__input"
+          onChange={[Function]}
+          type="checkbox"
+          value="no"
+        />
+        <div
+          className="work__filter--text filter__text"
+        >
+          no
+        </div>
+      </div>
+      <div
+        className="filter__container"
+      >
+        <img
+          alt=""
+          className="filter__icon icon__civilState"
+          src="https://image.flaticon.com/icons/svg/1102/1102457.svg"
+        />
+        <div
+          className="civilState__options"
+        >
+          <div
+            className="civilState__options--section"
+          >
+            <div
+              className="civilState__options--file"
+            >
+              <input
+                className="checkbox__input"
+                onChange={[Function]}
+                type="checkbox"
+                value="single"
+              />
+              <div
+                className="civilState__filter--text filter__text"
+              >
+                single
+              </div>
+            </div>
+            <div
+              className="civilState__options--file"
+            >
+              <input
+                className="checkbox__input"
+                onChange={[Function]}
+                type="checkbox"
+                value="divorced"
+              />
+              <div
+                className="civilState__filter--text filter__text"
+              >
+                divorced
+              </div>
+            </div>
+          </div>
+          <div
+            className="civilState__options--section"
+          >
+            <div
+              className="civilState__options--file"
+            >
+              <input
+                className="checkbox__input"
+                onChange={[Function]}
+                type="checkbox"
+                value="widow"
+              />
+              <div
+                className="civilState__filter--text filter__text"
+              >
+                widow
+              </div>
+            </div>
+            <div
+              className="civilState__options--file"
+            >
+              <input
+                className="checkbox__input"
+                onChange={[Function]}
+                type="checkbox"
+                value="married"
+              />
+              <div
+                className="civilState__filter--text filter__text"
+              >
+                married
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button
+        className="search-button"
+        onClick={[Function]}
+        to="/listUsers/"
+      >
+        SEARCH!
+      </button>
+    </form>
+  </main>
+</div>
+`;

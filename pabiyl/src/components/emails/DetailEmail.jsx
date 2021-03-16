@@ -5,7 +5,7 @@ import userStore from "../../stores/userStore";
 import { loadDetails } from "../../actions/detailAction";
 import { NavLink } from "react-router-dom";
 
-import "./detailEmail.css";
+import "./detailEmail.scss";
 
 function DetailEmail(props) {
   const [emails, setEmails] = useState(emailStore.getEmails());
@@ -25,12 +25,12 @@ function DetailEmail(props) {
         setDetailElement(email);
       }
     }
+    function onChange() {
+      setEmails(emailStore.getEmails());
+    }
     return () => emailStore.removeChangeListener(onChange);
-  }, [onChange]);
+  }, [emails.length, props.match.params.emailId]);
 
-  function onChange() {
-    setEmails(emailStore.getEmails());
-  }
   useEffect(() => {
     userStore.addChangeListener(anotherChange);
 

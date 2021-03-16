@@ -6,7 +6,7 @@ import {
   anonymousLogin,
   createUser,
 } from "../actions/AuthActions";
-import "./auth.css";
+import "./auth.scss";
 import authStore from "../stores/authStore";
 import Main from "./MainPage";
 export default (props) => {
@@ -29,6 +29,7 @@ export default (props) => {
       {!user && (
         <div className="login-container">
           <img
+            alt=""
             className="logo__login"
             src="https://www.flaticon.es/svg/static/icons/svg/2444/2444603.svg"
           ></img>

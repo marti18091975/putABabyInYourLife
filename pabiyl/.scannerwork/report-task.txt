@@ -1,0 +1,6 @@
+projectKey=pabiyl
+serverUrl=http://localhost:9000
+serverVersion=8.4.0.35506
+dashboardUrl=http://localhost:9000/dashboard?id=pabiyl
+ceTaskId=AXSbTU7vq2htDfrV8K5-
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AXSbTU7vq2htDfrV8K5-

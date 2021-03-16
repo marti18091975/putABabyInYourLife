@@ -3,12 +3,12 @@ import userStore from "../stores/userStore";
 import { loadDetails } from "../actions/detailAction";
 import { NavLink } from "react-router-dom";
 
-import "./detailUser.css";
+import "./detailUser.scss";
 
 function DetailUser(props) {
-  let detailUserId = null;
   const [detailUsers, setDetailUsers] = useState(userStore.getDetailUsers());
   const [detailElement, setDetailElement] = useState({});
+  const [detailUserId] = useState(props.match.params.detailUserId);
   const [name, setName] = useState();
   const [gender, setGender] = useState();
   const [age, setAge] = useState();
@@ -25,7 +25,6 @@ function DetailUser(props) {
   useEffect(() => {
     userStore.addChangeListener(onChange);
 
-    detailUserId = props.match.params.detailUserId;
     if (detailUsers.length === 0) {
       loadDetails();
     } else if (detailUserId) {
@@ -46,12 +45,12 @@ function DetailUser(props) {
         setThirdImage(detailUser.thirdImage);
       }
     }
+    function onChange() {
+      setDetailUsers(userStore.getDetailUsers());
+    }
     return () => userStore.removeChangeListener(onChange);
-  }, [detailUsers.length, detailElement, detailUserId, onChange]);
+  }, [detailUsers.length, detailElement, detailUserId]);
 
-  function onChange() {
-    setDetailUsers(userStore.getDetailUsers());
-  }
   const link = "/emailEdit/" + detailElement._id;
   return (
     <main className="main__detail">

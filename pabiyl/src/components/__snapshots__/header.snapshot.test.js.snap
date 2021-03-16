@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snapshot should match 1`] = `
+<section
+  className="main__header"
+>
+  <button
+    className="burguer-button"
+  >
+    <ul
+      className="burguer-menu"
+    >
+      <li
+        className="menu__header"
+      >
+        <a
+          aria-current={null}
+          className="nav__header"
+          href="/main"
+          onClick={[Function]}
+        >
+          main
+        </a>
+      </li>
+      <li
+        className="menu__header"
+      >
+        <a
+          aria-current={null}
+          className="nav__header"
+          href="/profile"
+          onClick={[Function]}
+        >
+          profile
+        </a>
+      </li>
+      <li
+        className="menu__header"
+      >
+        <a
+          aria-current={null}
+          className="nav__header"
+          href="/searchFilters"
+          onClick={[Function]}
+        >
+          find users
+        </a>
+      </li>
+      <li
+        className="menu__header"
+      >
+        <a
+          aria-current={null}
+          className="nav__header"
+          href="/messages"
+          onClick={[Function]}
+        >
+          messages
+        </a>
+      </li>
+    </ul>
+  </button>
+  <div
+    className="container__header"
+  >
+    <div
+      className="title__header"
+    >
+      Put a baby in your life
+    </div>
+    <img
+      alt=""
+      className="logo"
+      src="https://www.flaticon.es/svg/static/icons/svg/2444/2444603.svg"
+    />
+  </div>
+  <div
+    className="container__header"
+  >
+    <div
+      className="user__name"
+    />
+    <img
+      alt=""
+      className="user__image"
+    />
+  </div>
+  <a
+    aria-current="page"
+    className="active"
+    href="/"
+    onClick={[Function]}
+    style={Object {}}
+  >
+    <button
+      className="log-out"
+      onClick={[Function]}
+    />
+  </a>
+</section>
+`;

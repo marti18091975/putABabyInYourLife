@@ -4,7 +4,7 @@ import actionTypes from '../actions/actionTypes';
 
 const CHANGE_EVENT = 'change';
 let _users = [];
-let coordinates = {};
+
 
 class UserStore extends EventEmitter {
     addChangeListener(callback) {
@@ -38,7 +38,7 @@ class UserStore extends EventEmitter {
 const userStore = new UserStore();
 
 dispatcher.register((action) => {
-    console.log("AQUEST ES EL ACTION", action);
+
     switch (action.type) {
         case actionTypes.LOAD_USERS:
             _users = action.data;

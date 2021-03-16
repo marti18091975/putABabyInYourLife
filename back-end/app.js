@@ -1,10 +1,10 @@
 const express = require('express');
 const debug = require('debug')('app');
-const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 const app = express();
 const port = process.env.PORT || 4200;
+const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const UserDetail = require('./models/userModel');

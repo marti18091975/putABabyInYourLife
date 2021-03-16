@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./profileEditor.css";
+import "./profileEditor.scss";
 import { saveUser, updateUser } from "../actions/detailAction";
 import { getCoordinates } from "../actions/coordinateAction";
 import firebase from "firebase";
@@ -9,18 +9,16 @@ import coordinateStore from "../stores/coordinateStore";
 import { NavLink } from "react-router-dom";
 
 function ProfileEditor(props) {
-  const [user, setUser] = useState();
   const [uploadValue, setUploadValue] = useState(0);
   const [uploadValue2, setUploadValue2] = useState(0);
   const [uploadValue3, setUploadValue3] = useState(0);
-  const [icon, setIcon] = useState(false);
-  const [picture, setPicture] = useState(null);
-  let [_id, set_id] = useState();
+
+  let [_id] = useState();
   let [urlPicture, setUrlPicture] = useState();
   let [urlPicture2, setUrlPicture2] = useState();
   let [urlPicture3, setUrlPicture3] = useState();
   let [name, setName] = useState();
-  let [email, setEmail] = useState(authStore.getUserEmail());
+  let [email] = useState(authStore.getUserEmail());
   let [gender, setGender] = useState();
   let [age, setAge] = useState();
   let [city, setCity] = useState();
@@ -32,9 +30,9 @@ function ProfileEditor(props) {
   let [mainImage, setMainImage] = useState();
   let [secondImage, setSecondImage] = useState();
   let [thirdImage, setThirdImage] = useState();
-  const [coordinates, setCoordinates] = useState();
-  let [latitude, setLatitude] = useState();
-  let [longitude, setLongitude] = useState();
+
+  let [latitude] = useState();
+  let [longitude] = useState();
 
   function onFieldChange(value, setValue) {
     setValue(value);
@@ -146,7 +144,6 @@ function ProfileEditor(props) {
   function onUpload(event) {
     const file = event.target.files[0];
     const storageRef = firebase.storage().ref(`/photos/${file.name}`);
-    const urlPicture = storageRef.getDownloadURL();
 
     const task = storageRef.put(file);
 
@@ -159,7 +156,7 @@ function ProfileEditor(props) {
         setUploadValue(percentage);
       },
       (error) => {
-        console.log(error.message);
+        throw error;
       },
       (result) => {
         storageRef.getDownloadURL().then(function (result) {
@@ -172,7 +169,6 @@ function ProfileEditor(props) {
   function onUpload2(event) {
     const file = event.target.files[0];
     const storageRef = firebase.storage().ref(`/photos/${file.name}`);
-    const urlPicture = storageRef.getDownloadURL();
 
     const task = storageRef.put(file);
 
@@ -185,7 +181,7 @@ function ProfileEditor(props) {
         setUploadValue2(percentage);
       },
       (error) => {
-        console.log(error.message);
+        throw error;
       },
       (result) => {
         storageRef.getDownloadURL().then(function (result) {
@@ -198,7 +194,6 @@ function ProfileEditor(props) {
   function onUpload3(event) {
     const file = event.target.files[0];
     const storageRef = firebase.storage().ref(`/photos/${file.name}`);
-    const urlPicture = storageRef.getDownloadURL();
 
     const task = storageRef.put(file);
 
@@ -211,7 +206,7 @@ function ProfileEditor(props) {
         setUploadValue3(percentage);
       },
       (error) => {
-        console.log(error.message);
+        throw error;
       },
       (result) => {
         storageRef.getDownloadURL().then(function (result) {
@@ -479,7 +474,7 @@ function ProfileEditor(props) {
             )}
           </section>
         </div>
-        <section className="right-side__detail">
+        <section className="right-side__detail--profile">
           {!urlPicture3 && (
             <div className="image__main--profile no-photo">
               <input
@@ -519,16 +514,12 @@ function ProfileEditor(props) {
             className="presentation--profile"
           ></input>
           <div className="button__container">
-            <button onClick={postUserProfile} className="post-button">
-              LOAD!
-            </button>
+            <NavLink to="/main">
+              <button onClick={postUserProfile} className="post-button">
+                LOAD!
+              </button>
+            </NavLink>
 
-            {icon && (
-              <img
-                className="icon__detail"
-                src="https://www.flaticon.es/svg/static/icons/svg/3472/3472620.svg"
-              ></img>
-            )}
             <NavLink className="navLink__exit" to="/main">
               COME BACK
             </NavLink>

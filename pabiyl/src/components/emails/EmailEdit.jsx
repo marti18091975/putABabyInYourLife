@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "./emailEdit.css";
+import "./emailEdit.scss";
 import userStore from "../../stores/userStore";
 import authStore from "../../stores/authStore";
-import emailStore from "../../stores/emailStore";
 import { saveEmail } from "../../actions/emailActions";
 import { loadDetails } from "../../actions/detailAction";
 import { NavLink } from "react-router-dom";
@@ -38,7 +37,6 @@ function EmailEdit(props) {
     return minuteString;
   }
 
-  console.log("·····", emailEmisor, emailReceptor, nameReceptor, date, hour);
   function onFieldChange(value, setValue) {
     setValue(value);
   }
@@ -46,11 +44,11 @@ function EmailEdit(props) {
   useEffect(() => {
     userStore.addChangeListener(onChange);
     loadDetails();
+    function onChange() {
+      setNameEmisor(userStore.getDetailUserByEmail(emailEmisor).name);
+    }
     return () => userStore.removeChangeListener(onChange);
-  }, [onChange]);
-  function onChange() {
-    setNameEmisor(userStore.getDetailUserByEmail(emailEmisor).name);
-  }
+  }, [emailEmisor]);
   function send() {
     saveEmail({
       emisor: emailEmisor,
